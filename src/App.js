@@ -14,11 +14,11 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
-import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 import hola from './containers/hola';
 import test1 from './containers/test1';
 import { BrowserRouter as Router } from "react-router-dom";
+import { Link } from 'react-router-dom'
 
 
 const drawerSize = 240;

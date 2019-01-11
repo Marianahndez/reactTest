@@ -4,7 +4,7 @@ import './assets/styles/index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import test1 from './containers/test1';
-import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 ReactDOM.render(
     <Router>
