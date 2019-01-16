@@ -4,7 +4,7 @@ import './assets/styles/App.scss';
 import AppBar from '@material-ui/core/AppBar';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import { Toolbar, withStyles, MenuItem } from '@material-ui/core';
+import { Toolbar, withStyles, MenuItem, Button } from '@material-ui/core';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import PropTypes from 'prop-types';
 import List from '@material-ui/core/List';
@@ -28,6 +28,13 @@ import Select from '@material-ui/core/Select';
 import NativeSelect from '@material-ui/core/NativeSelect';
 import TextField from '@material-ui/core/TextField';
 import Drawer from '@material-ui/core/Drawer';
+import Radio from '@material-ui/core/Radio';
+import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
+import RadioButtonCheckedIcon from '@material-ui/icons/RadioButtonChecked';
+import Fab from '@material-ui/core/Fab';
+import Done from '@material-ui/icons/Done';
+
+/* Biller & System, same views */
 
 const drawerSize = 240;
  
@@ -58,6 +65,13 @@ const drawerSize = 240;
     flexGrow: 1,
     padding: theme.spacing.unit * 3,
   },
+  rootCheckBox: {
+    color: "#3e8424",
+    '&$checked': {
+      color: "#3e8424",
+    },
+  },
+  checked: {},
 /*   drawer: {
     width: drawerSize,
     flexShrink: 0,
@@ -82,16 +96,18 @@ const drawerSize = 240;
   }, */
 }); 
 
-class PayBill extends Component {
+class App extends Component {
   state = {
     age: '1',
     name: '',
     multiline: 'Controlled',
     currency: 'EUR',
+    selectedValue: 'c',
+    agentID: 'Enter Agent ID'
   };
 
   handleChange = name => event => {
-    this.setState({ [name]: event.target.value });
+    this.setState({ [name]: event.target.value, selectedValue: event.target.value });
   };
 
   toggleDrawer = (side, open) => () => {
@@ -106,7 +122,7 @@ class PayBill extends Component {
     const menu = (
       <div className="list">
         <List>
-              <ListItem button selected>
+              <ListItem button >
                 <ListItemIcon className="iconmenu">
                   <InboxIcon />
                 </ListItemIcon>
@@ -115,8 +131,8 @@ class PayBill extends Component {
             <Divider />
 
             {/* <Link to='/RegisterComplaint'> */}
-              <ListItem button >
-                <ListItemIcon>
+              <ListItem button selected>
+                <ListItemIcon className="iconmenu">
                   <Listalt />
                 </ListItemIcon>
                 <ListItemText className="menutxt" primary="Register Complaint" />
@@ -126,7 +142,7 @@ class PayBill extends Component {
 
             {/* <Link to='/ComplainStatus'> */}
               <ListItem button >
-                <ListItemIcon>
+                <ListItemIcon className="iconmenu">
                   <Error />
                 </ListItemIcon>
                 <ListItemText className="menutxt" primary="Complaint Status" />
@@ -140,15 +156,12 @@ class PayBill extends Component {
     return (
       <div className="App">
           <AppBar position="fixed"
-              className={classes.appBar}
-              id="appbar"
-            /* className={classNames(classes.appBar, {
-              [classes.appBarShift]: this.state.open,
-            })} */
+            className={classes.appBar}
+            id="appbar"
           >
             <Toolbar>
               <Typography variant="h6" color="inherit" className="appbarmenu" noWrap>
-                Paikyy / BBP
+                Paykii / BBPS
               </Typography>
             </Toolbar>
           </AppBar>
@@ -183,7 +196,7 @@ class PayBill extends Component {
           <Paper elevation={1} className="paper">
             <Grid xs={12}>
               <Typography variant="h5" component="h3" className="mainHeader">
-                Pay Bill
+                Register Complaint
               </Typography>
             </Grid>
             <div className="card">
@@ -191,7 +204,7 @@ class PayBill extends Component {
                 <Typography component="p">
                 <FormControl className="formControl">
                   <InputLabel className="labelMain" shrink htmlFor="age-native-label-placeholder">
-                    Biller Category
+                    Type of Complaint
                   </InputLabel>
                   <Select
                     value={this.state.age}
@@ -199,14 +212,9 @@ class PayBill extends Component {
                     className="SelectMain"
                     input={<Input name="age" id="age-native-label-placeholder" />}
                   >
-                    <MenuItem value={1}><em>Please Select</em></MenuItem>
-                    <MenuItem value={10}>Broadband Postpaid</MenuItem>
-                    <MenuItem value={20}>DTH</MenuItem>
-                    <MenuItem value={30}>Electricity</MenuItem>
-                    <MenuItem value={40}>Gas</MenuItem>
-                    <MenuItem value={50}>Landline Postpaid</MenuItem>
-                    <MenuItem value={60}>Mobile Postpaid</MenuItem>
-                    <MenuItem value={70}>Water</MenuItem>
+                    <MenuItem value={20}><em>Select Complaint Type</em></MenuItem>
+                    <MenuItem value={10}>Transaction Type</MenuItem>
+                    <MenuItem value={1}>Service Type</MenuItem>
                   </Select>
                 </FormControl>
                 </Typography>
@@ -216,7 +224,100 @@ class PayBill extends Component {
                 <Typography component="p">
                 <FormControl className="formControl">
                   <InputLabel className="labelMain" shrink htmlFor="age-native-label-placeholder">
-                    Biller
+                    Service Type Complaint
+                  </InputLabel>
+                  <Select
+                    value={this.state.age}
+                    onChange={this.handleChange('age')}
+                    className="SelectMain"
+                    input={<Input name="age" id="age-native-label-placeholder" />}
+                  >
+                    <MenuItem value={20}><em>Select Participation Type</em></MenuItem>
+                    <MenuItem value={15}>Agent</MenuItem>
+                    <MenuItem value={1}>Biller</MenuItem>
+                    <MenuItem value={18}>System</MenuItem>
+                  </Select>
+                </FormControl>
+                </Typography>
+              </Grid>
+
+            </div>
+            </Paper>
+
+            <Paper elevation={1} className="paper">
+              <Grid xs={12}>
+                <Typography variant="h5" component="h3" className="tittleSec">
+                  Register Service Complaint
+                </Typography>
+              </Grid>
+              <div className="card_rc">
+                <Grid xs={3}>
+                  <form className="formControl" noValidate autoComplete="off">
+                    <InputLabel disabled className="labelDetails" shrink htmlFor="age-native-label-placeholder">
+                    Type of Complaint
+                    </InputLabel>
+                    <TextField
+                      id="standard-name"
+                      className="textField"
+                      value="Service"
+                      onChange={this.handleChange('name')}
+                      margin="normal"
+                    />
+                  </form>
+                </Grid>
+
+                <Grid xs={3}>
+                  <form className="formControl" noValidate autoComplete="off">
+                    <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
+                    Participation Type
+                    </InputLabel>
+                    <TextField
+                      id="standard-name"
+                      className="textField"
+                      value="Biller"
+                      onChange={this.handleChange('name')}
+                      margin="normal"
+                    />
+                  </form>
+                </Grid>
+
+                <Grid xs={3}>
+                  <FormControl className="formControl_select">
+                    <InputLabel className="labelMain" shrink htmlFor="age-native-label-placeholder">
+                      Biller Name*
+                    </InputLabel>
+                    <Select
+                      value={this.state.age}
+                      onChange={this.handleChange('age')}
+                      className="SelectMain"
+                      input={<Input name="age" id="age-native-label-placeholder" />}
+                    >
+                      <MenuItem value={1}><em>Please Select</em></MenuItem>
+                      <MenuItem value={12}>Hathway Broadband</MenuItem>
+                      <MenuItem value={15}>Uttar Pradesh Power Corp Ltd (UPPCL) - RURAL</MenuItem>
+                      <MenuItem value={13}>Airtel Landline</MenuItem>
+                      <MenuItem value={16}>Airtel Postpaid</MenuItem>
+                      <MenuItem value={11}>Airtel Broadband</MenuItem>
+                      <MenuItem value={10}>Bangalore Water Supply and Sewerage Board</MenuItem>
+                      <MenuItem value={17}>Ajmer Vidyut Vitran Nigam Limited (AVVNL)</MenuItem>
+                      <MenuItem value={18}>Jodhpur Vidyut Vitran Nigam Limited (JDVVNL)</MenuItem>
+                      <MenuItem value={19}>Jharkhand Bijli Vitran Nigam Limited (JBVNL)</MenuItem>
+                      <MenuItem value={20}>WESCO Utility</MenuItem>
+                      <MenuItem value={21}>Chhattisgarh State Power Distribution Co. Ltd</MenuItem>
+                      <MenuItem value={22}>Charotar Gas Sahakari Mandali Ltd</MenuItem>
+                      <MenuItem value={23}>Vodafone Postpaid (Fetch & Pay)</MenuItem>
+                      <MenuItem value={24}>Greater Warangal Municipal Corporation - Water</MenuItem>
+                      <MenuItem value={25}>M.P. Madhya Kshetra Vidyut Vitaran - URBAN</MenuItem>
+                      <MenuItem value={26}>M.P. Madhya Kshetra Vidyut Vitaran - RURAL</MenuItem>
+                      <MenuItem value={27}>Spectranet Broadband</MenuItem>
+                    </Select>
+                  </FormControl>
+                </Grid>
+
+                <Grid xs={3}>
+                <FormControl className="formControl_select">
+                  <InputLabel className="labelMain" shrink htmlFor="age-native-label-placeholder">
+                    Service Reason*
                   </InputLabel>
                   <Select
                     value={this.state.age}
@@ -225,74 +326,74 @@ class PayBill extends Component {
                     input={<Input name="age" id="age-native-label-placeholder" />}
                   >
                     <MenuItem value={1}><em>Please Select</em></MenuItem>
-                    <MenuItem value={5}>APEPDCL-Eastern Power Distribution CO AP Ltd</MenuItem>
-                    <MenuItem value={10}>APSPDCL-Southern Power Distribution CO AP Ltd</MenuItem>
-                    <MenuItem value={20}>Adani Electricity Mumbai Limited</MenuItem>
-                    <MenuItem value={30}>Adani Electricity Mumbai Limited - Old</MenuItem>
-                    <MenuItem value={40}>Ajmer Vidyut Vitran Nigam Limited (AVVNL)</MenuItem>
-                    <MenuItem value={50}>Assam Power Distribution Company Ltd (NON-RAPDR)</MenuItem>
-                    <MenuItem value={60}>Assam Power Distribution Company Ltd (RAPDR)</MenuItem>
-                    <MenuItem value={70}>B.E.S.T Mumbai</MenuItem>
-                    <MenuItem value={80}>BSES Yamuna Power Limited</MenuItem>
+                    <MenuItem value={12}>Biller available. Unable to transact</MenuItem>
+                    <MenuItem value={15}>Multiple failure for same biller</MenuItem>
+                    <MenuItem value={13}>Denomination not available</MenuItem>
+                    <MenuItem value={16}>Incorrect bill details displayed</MenuItem>
+                    <MenuItem value={11}>Incomplete / No details reflecting</MenuItem>
                   </Select>
                 </FormControl>
-                </Typography>
-              </Grid>
-            </div>
-            </Paper>
-
-            <Paper elevation={1} className="paper">
-              <Grid xs={12}>
-                <Typography variant="h5" component="h3" className="tittleSec">
-                  My detail
-                </Typography>
-              </Grid>
-              <div className="card">
-                <Grid xs={4}>
-                  <form className="formControl" noValidate autoComplete="off">
-                    <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
-                    Mobil Number*
-                    </InputLabel>
-                    <TextField
-                      id="standard-name"
-                      className="textField"
-                      value="+91"
-                      onChange={this.handleChange('name')}
-                      margin="normal"
-                    />
-                  </form>
-                </Grid>
-
-                <Grid xs={4}>
-                  <form className="formControl" noValidate autoComplete="off">
-                    <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
-                      Email
-                    </InputLabel>
-                    <TextField
-                      id="standard-name"
-                      className="textField"
-                      value="email@example.com"
-                      onChange={this.handleChange('name')}
-                      margin="normal"
-                    />
-                  </form>
                 </Grid>
               </div>
 
-              <div className="card">
-              <Grid xs={4}>
+              <div className="card_rc">
+                <Grid xs={6}>
                   <form className="formControl" noValidate autoComplete="off">
                     <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
-                    Consumer ID*
+                      Complaint Description*
                     </InputLabel>
                     <TextField
                       id="standard-name"
                       className="textField"
-                      value=" "
+                      value="Enter Complaint Description"
                       onChange={this.handleChange('name')}
                       margin="normal"
                     />
                   </form>
+                </Grid>
+
+                <Grid xs={3}>
+                  <form className="formControl" noValidate autoComplete="off">
+                    <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
+                      Mobile Number*
+                    </InputLabel>
+                    <TextField
+                      id="standard-name"
+                      className="textField"
+                      value="+91 "
+                      onChange={this.handleChange('name')}
+                      margin="normal"
+                    />
+                  </form>
+                </Grid>
+
+                <Grid xs={3}>
+
+                </Grid>
+              </div>
+
+              <div className="card_rc">
+              <Grid xs={4}>
+                  <form className="formControl" noValidate autoComplete="off">
+                    <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
+                      Enter OTP*
+                    </InputLabel>
+                    <TextField
+                      id="standard-name"
+                      className="textField"
+                      value="OTP"
+                      onChange={this.handleChange('name')}
+                      margin="normal"
+                    />
+                  </form>
+                </Grid>
+
+                <Grid xs={7} className="buttonsArea">
+                  <Button className="btnGeneral" disabled>Resend OTP</Button>
+                  <Button className="btnGeneral" disabled>Generate OTP</Button>
+                  <Fab className="btnDone">
+                    <Done />
+                  </Fab>
                 </Grid>
               </div>
           </Paper>
@@ -302,8 +403,8 @@ class PayBill extends Component {
   }
 }
 
-PayBill.propTypes = {
+App.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(PayBill);
+export default withStyles(styles)(App);

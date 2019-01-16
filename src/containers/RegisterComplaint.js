@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
-import './assets/styles/App.scss';
+import '../assets/styles/App.scss';
 import AppBar from '@material-ui/core/AppBar';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import { Toolbar, withStyles, MenuItem } from '@material-ui/core';
+import { Toolbar, withStyles, MenuItem, Button } from '@material-ui/core';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import PropTypes from 'prop-types';
 import List from '@material-ui/core/List';
@@ -28,6 +28,9 @@ import Select from '@material-ui/core/Select';
 import NativeSelect from '@material-ui/core/NativeSelect';
 import TextField from '@material-ui/core/TextField';
 import Drawer from '@material-ui/core/Drawer';
+import Radio from '@material-ui/core/Radio';
+import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
+import RadioButtonCheckedIcon from '@material-ui/icons/RadioButtonChecked';
 
 const drawerSize = 240;
  
@@ -58,6 +61,13 @@ const drawerSize = 240;
     flexGrow: 1,
     padding: theme.spacing.unit * 3,
   },
+  rootCheckBox: {
+    color: "#3e8424",
+    '&$checked': {
+      color: "#3e8424",
+    },
+  },
+  checked: {},
 /*   drawer: {
     width: drawerSize,
     flexShrink: 0,
@@ -82,16 +92,17 @@ const drawerSize = 240;
   }, */
 }); 
 
-class PayBill extends Component {
+class RegisterComplaint extends Component {
   state = {
     age: '1',
     name: '',
     multiline: 'Controlled',
     currency: 'EUR',
+    selectedValue: 'c',
   };
 
   handleChange = name => event => {
-    this.setState({ [name]: event.target.value });
+    this.setState({ [name]: event.target.value, selectedValue: event.target.value });
   };
 
   toggleDrawer = (side, open) => () => {
@@ -106,7 +117,7 @@ class PayBill extends Component {
     const menu = (
       <div className="list">
         <List>
-              <ListItem button selected>
+              <ListItem button >
                 <ListItemIcon className="iconmenu">
                   <InboxIcon />
                 </ListItemIcon>
@@ -115,8 +126,8 @@ class PayBill extends Component {
             <Divider />
 
             {/* <Link to='/RegisterComplaint'> */}
-              <ListItem button >
-                <ListItemIcon>
+              <ListItem button selected>
+                <ListItemIcon className="iconmenu">
                   <Listalt />
                 </ListItemIcon>
                 <ListItemText className="menutxt" primary="Register Complaint" />
@@ -126,7 +137,7 @@ class PayBill extends Component {
 
             {/* <Link to='/ComplainStatus'> */}
               <ListItem button >
-                <ListItemIcon>
+                <ListItemIcon className="iconmenu">
                   <Error />
                 </ListItemIcon>
                 <ListItemText className="menutxt" primary="Complaint Status" />
@@ -140,15 +151,12 @@ class PayBill extends Component {
     return (
       <div className="App">
           <AppBar position="fixed"
-              className={classes.appBar}
-              id="appbar"
-            /* className={classNames(classes.appBar, {
-              [classes.appBarShift]: this.state.open,
-            })} */
+            className={classes.appBar}
+            id="appbar"
           >
             <Toolbar>
               <Typography variant="h6" color="inherit" className="appbarmenu" noWrap>
-                Paikyy / BBP
+                Paykii / BBPS
               </Typography>
             </Toolbar>
           </AppBar>
@@ -183,7 +191,7 @@ class PayBill extends Component {
           <Paper elevation={1} className="paper">
             <Grid xs={12}>
               <Typography variant="h5" component="h3" className="mainHeader">
-                Pay Bill
+                Register Complaint
               </Typography>
             </Grid>
             <div className="card">
@@ -191,7 +199,7 @@ class PayBill extends Component {
                 <Typography component="p">
                 <FormControl className="formControl">
                   <InputLabel className="labelMain" shrink htmlFor="age-native-label-placeholder">
-                    Biller Category
+                    Type of Complaint
                   </InputLabel>
                   <Select
                     value={this.state.age}
@@ -199,54 +207,52 @@ class PayBill extends Component {
                     className="SelectMain"
                     input={<Input name="age" id="age-native-label-placeholder" />}
                   >
-                    <MenuItem value={1}><em>Please Select</em></MenuItem>
-                    <MenuItem value={10}>Broadband Postpaid</MenuItem>
-                    <MenuItem value={20}>DTH</MenuItem>
-                    <MenuItem value={30}>Electricity</MenuItem>
-                    <MenuItem value={40}>Gas</MenuItem>
-                    <MenuItem value={50}>Landline Postpaid</MenuItem>
-                    <MenuItem value={60}>Mobile Postpaid</MenuItem>
-                    <MenuItem value={70}>Water</MenuItem>
+                    <MenuItem value={10}><em>Select Complaint Type</em></MenuItem>
+                    <MenuItem value={1}>Transaction Type</MenuItem>
+                    <MenuItem value={20}>Service Type</MenuItem>
                   </Select>
                 </FormControl>
                 </Typography>
               </Grid>
 
-              <Grid xs={4}>
-                <Typography component="p">
-                <FormControl className="formControl">
-                  <InputLabel className="labelMain" shrink htmlFor="age-native-label-placeholder">
-                    Biller
-                  </InputLabel>
-                  <Select
-                    value={this.state.age}
-                    onChange={this.handleChange('age')}
-                    className="SelectMain"
-                    input={<Input name="age" id="age-native-label-placeholder" />}
-                  >
-                    <MenuItem value={1}><em>Please Select</em></MenuItem>
-                    <MenuItem value={5}>APEPDCL-Eastern Power Distribution CO AP Ltd</MenuItem>
-                    <MenuItem value={10}>APSPDCL-Southern Power Distribution CO AP Ltd</MenuItem>
-                    <MenuItem value={20}>Adani Electricity Mumbai Limited</MenuItem>
-                    <MenuItem value={30}>Adani Electricity Mumbai Limited - Old</MenuItem>
-                    <MenuItem value={40}>Ajmer Vidyut Vitran Nigam Limited (AVVNL)</MenuItem>
-                    <MenuItem value={50}>Assam Power Distribution Company Ltd (NON-RAPDR)</MenuItem>
-                    <MenuItem value={60}>Assam Power Distribution Company Ltd (RAPDR)</MenuItem>
-                    <MenuItem value={70}>B.E.S.T Mumbai</MenuItem>
-                    <MenuItem value={80}>BSES Yamuna Power Limited</MenuItem>
-                  </Select>
-                </FormControl>
-                </Typography>
-              </Grid>
             </div>
             </Paper>
 
             <Paper elevation={1} className="paper">
               <Grid xs={12}>
                 <Typography variant="h5" component="h3" className="tittleSec">
-                  My detail
+                  Transaction Type Complaint
                 </Typography>
               </Grid>
+              <div className="cardSm">
+                <Grid xs={12}>
+                  <Radio
+                    checked={this.state.selectedValue === 'c'}
+                    onChange={this.handleChange}
+                    value="c"
+                    name="radio-button-demo"
+                    aria-label="C"
+                    classes={{
+                      root: classes.rootCheckBox,
+                      checked: classes.checked,
+                    }}
+                  /> 
+                  <span className="radioTxt">Mobile Number</span>
+
+                  <Radio
+                    checked={this.state.selectedValue === ''}
+                    onChange={this.handleChange}
+                    value="c"
+                    name="radio-button-demo"
+                    aria-label="C"
+                    classes={{
+                      root: classes.rootCheckBox,
+                      checked: classes.checked,
+                    }}
+                  /> 
+                  <span className="radioTxt">Transaction Reference ID</span>
+                </Grid>
+              </div>
               <div className="card">
                 <Grid xs={4}>
                   <form className="formControl" noValidate autoComplete="off">
@@ -266,12 +272,27 @@ class PayBill extends Component {
                 <Grid xs={4}>
                   <form className="formControl" noValidate autoComplete="off">
                     <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
-                      Email
+                      From Date*
                     </InputLabel>
                     <TextField
                       id="standard-name"
                       className="textField"
-                      value="email@example.com"
+                      value="15-01-2019"
+                      onChange={this.handleChange('name')}
+                      margin="normal"
+                    />
+                  </form>
+                </Grid>
+
+                <Grid xs={4}>
+                  <form className="formControl" noValidate autoComplete="off">
+                    <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
+                      To Date*
+                    </InputLabel>
+                    <TextField
+                      id="standard-name"
+                      className="textField"
+                      value="15-01-2019"
                       onChange={this.handleChange('name')}
                       margin="normal"
                     />
@@ -283,16 +304,21 @@ class PayBill extends Component {
               <Grid xs={4}>
                   <form className="formControl" noValidate autoComplete="off">
                     <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
-                    Consumer ID*
+                      Enter OTP
                     </InputLabel>
                     <TextField
                       id="standard-name"
                       className="textField"
-                      value=" "
+                      value="OTP"
                       onChange={this.handleChange('name')}
                       margin="normal"
                     />
                   </form>
+                </Grid>
+
+                <Grid xs={7} className="buttonsArea">
+                  <Button className="btnGeneral" disabled>Resend OTP</Button>
+                  <Button className="btnGeneral">Generate OTP</Button>
                 </Grid>
               </div>
           </Paper>
@@ -302,8 +328,8 @@ class PayBill extends Component {
   }
 }
 
-PayBill.propTypes = {
+RegisterComplaint.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(PayBill);
+export default withStyles(styles)(RegisterComplaint);
