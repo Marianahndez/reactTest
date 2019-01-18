@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
-import classNames from 'classnames';
 import '../assets/styles/App.scss';
 import AppBar from '@material-ui/core/AppBar';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
 import { Toolbar, withStyles, MenuItem } from '@material-ui/core';
-import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import PropTypes from 'prop-types';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
@@ -14,7 +10,6 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import Listalt from '@material-ui/icons/ListAlt'
-import MailIcon from '@material-ui/icons/Mail';
 import Error from '@material-ui/icons/ReportProblem';
 import Typography from '@material-ui/core/Typography';
 import { Link } from "react-router-dom";
@@ -22,12 +17,14 @@ import Paper from '@material-ui/core/Paper';
 import Input from '@material-ui/core/Input';
 import Grid from '@material-ui/core/Grid';
 import InputLabel from '@material-ui/core/InputLabel';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import NativeSelect from '@material-ui/core/NativeSelect';
 import TextField from '@material-ui/core/TextField';
 import Drawer from '@material-ui/core/Drawer';
+import ImgLogo from '../assets/img/logobbps.svg';
+import LogoBA from '../assets/img/LogoBillAvenue.svg';
+import Fab from '@material-ui/core/Fab';
+import Done from '@material-ui/icons/Done';
 
 const drawerSize = 240;
  
@@ -58,28 +55,6 @@ const drawerSize = 240;
     flexGrow: 1,
     padding: theme.spacing.unit * 3,
   },
-/*   drawer: {
-    width: drawerSize,
-    flexShrink: 0,
-    whiteSpace: 'nowrap',
-  },
-  drawerOpen: {
-    width: drawerSize,
-    transition: theme.transitions.create('width', {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  },
-  drawerClose: {
-    transition: theme.transitions.create('width', {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-    overflowX: 'hidden',
-    [theme.breakpoints.up('sm')]: {
-      width: theme.spacing.unit * 9 + 1,
-    },
-  }, */
 }); 
 
 class PayBill extends Component {
@@ -106,12 +81,14 @@ class PayBill extends Component {
     const menu = (
       <div className="list">
         <List>
-              <ListItem button selected>
-                <ListItemIcon className="iconmenu">
-                  <InboxIcon />
-                </ListItemIcon>
-                <ListItemText className="menutxt" primary="Pay Bill" />
-              </ListItem>
+             {/*  <Link to='/PayBill'> */}
+                <ListItem button selected>
+                  <ListItemIcon className="iconmenu">
+                    <InboxIcon />
+                  </ListItemIcon>
+                  <ListItemText className="menutxt" primary="Pay Bill" />
+                </ListItem>
+              {/* </Link> */}
             <Divider />
 
             {/* <Link to='/RegisterComplaint'> */}
@@ -124,7 +101,7 @@ class PayBill extends Component {
             {/* </Link> */}
             <Divider />
 
-            {/* <Link to='/ComplainStatus'> */}
+            {/* <Link to='/ComplaintStatus'> */}
               <ListItem button >
                 <ListItemIcon>
                   <Error />
@@ -142,14 +119,10 @@ class PayBill extends Component {
           <AppBar position="fixed"
               className={classes.appBar}
               id="appbar"
-            /* className={classNames(classes.appBar, {
-              [classes.appBarShift]: this.state.open,
-            })} */
           >
             <Toolbar>
-              <Typography variant="h6" color="inherit" className="appbarmenu" noWrap>
-                Paikyy / BBP
-              </Typography>
+              <img src={LogoBA} className="logoBA" />
+              <img src={ImgLogo} className="imglogo" />
             </Toolbar>
           </AppBar>
 
@@ -164,22 +137,7 @@ class PayBill extends Component {
             {menu}
       </Drawer>
 
-          {/* <SwipeableDrawer
-          open={this.state.left}
-          onClose={this.toggleDrawer('left', false)}
-          onOpen={this.toggleDrawer('left', true)}
-        >
-          <div
-            tabIndex={0}
-            role="button"
-            onClick={this.toggleDrawer('left', false)}
-            onKeyDown={this.toggleDrawer('left', false)}
-          >
-            {menu}
-          </div>
-        </SwipeableDrawer> */}
-
-        <Grid xs ={12} className="Appheader">
+        <Grid xs ={12} className="Appheader PB">
           <Paper elevation={1} className="paper">
             <Grid xs={12}>
               <Typography variant="h5" component="h3" className="mainHeader">
@@ -224,6 +182,38 @@ class PayBill extends Component {
                     className="SelectMain"
                     input={<Input name="age" id="age-native-label-placeholder" />}
                   >
+                    {/* <MenuItem value={1}>Please Select</MenuItem>
+                    <MenuItem value={2}>ACT Fibernet</MenuItem>
+                    <MenuItem value={3}>Airtel Broadband</MenuItem>
+                    <MenuItem value={4}>Airtel Broadband (Fetch & Pay)</MenuItem>
+                    <MenuItem value={5}>Connect Broadband</MenuItem>
+                    <MenuItem value={6}>Hathway Broadband</MenuItem>
+                    <MenuItem value={7}>Nextra Broadband</MenuItem>
+                    <MenuItem value={8}>Spectranet Broadband</MenuItem>
+                    <MenuItem value={9}>TTN BroadBand</MenuItem>
+                    <MenuItem value={10}>Tikona Digital Networks Private Limited</MenuItem> */}
+
+                    {/* <MenuItem value={1}>Please Select</MenuItem>
+                    <MenuItem value={1}>Dish TV</MenuItem>
+                    <MenuItem value={1}>Sun Direct TV</MenuItem>
+                    <MenuItem value={1}>Sun Direct TV (With Validation)</MenuItem>
+                    <MenuItem value={1}>Tata Sky</MenuItem>
+                    <MenuItem value={1}>Videocon D2H</MenuItem> */}
+
+
+                  {/*   <MenuItem value={1}></MenuItem>
+                    <MenuItem value={1}></MenuItem>
+                    <MenuItem value={1}></MenuItem>
+                    <MenuItem value={1}></MenuItem>
+                    <MenuItem value={1}></MenuItem>
+                    <MenuItem value={1}></MenuItem>
+                    <MenuItem value={1}></MenuItem>
+                    <MenuItem value={1}></MenuItem>
+                    <MenuItem value={1}></MenuItem>
+                    <MenuItem value={1}></MenuItem>
+                    <MenuItem value={1}></MenuItem>
+                    <MenuItem value={1}></MenuItem> */}
+
                     <MenuItem value={1}><em>Please Select</em></MenuItem>
                     <MenuItem value={5}>APEPDCL-Eastern Power Distribution CO AP Ltd</MenuItem>
                     <MenuItem value={10}>APSPDCL-Southern Power Distribution CO AP Ltd</MenuItem>
@@ -233,15 +223,73 @@ class PayBill extends Component {
                     <MenuItem value={50}>Assam Power Distribution Company Ltd (NON-RAPDR)</MenuItem>
                     <MenuItem value={60}>Assam Power Distribution Company Ltd (RAPDR)</MenuItem>
                     <MenuItem value={70}>B.E.S.T Mumbai</MenuItem>
+                    <MenuItem value={52}>BSES Rajdhani Power Limited</MenuItem>
                     <MenuItem value={80}>BSES Yamuna Power Limited</MenuItem>
-                  </Select>
+                    <MenuItem value={1}>Bangalore Electricity Supply Co. Ltd (BESCOM)</MenuItem>
+                    <MenuItem value={1}>Bharatpur Electricity Services Ltd. (BESL)</MenuItem>
+                    <MenuItem value={1}>Bharatpur Electricity Services Ltd. (BESL) - Old</MenuItem>
+                    <MenuItem value={1}>Bikaner Electricity Supply Limited (BkESL)</MenuItem>
+                    <MenuItem value={1}>Bikaner Electricity Supply Limited (BkESL) - Old</MenuItem>
+                    <MenuItem value={1}>Calcutta Electric Supply Corporation (CESC)</MenuItem>
+                    <MenuItem value={1}>Chamundeshwari Electricity Supply Corp Ltd (CESCOM)</MenuItem>
+                    <MenuItem value={1}>Chhattisgarh State Power Distribution Co. Ltd</MenuItem>
+                    <MenuItem value={1}>DNH Power Distribution Company Limited</MenuItem>
+                    <MenuItem value={1}>Dakshin Gujarat Vij Company Limited (DGVCL)</MenuItem>
+                    <MenuItem value={1}>Dakshin Haryana Bijli Vitran Nigam (DHBVN)</MenuItem>
+                    <MenuItem value={1}>Daman and Diu Electricity</MenuItem>
+                    <MenuItem value={1}>Gulbarga Electricity Supply Company Limited</MenuItem>
+                    <MenuItem value={1}>Himachal Pradesh State Electricity Board</MenuItem>
+                    <MenuItem value={1}>Hubli Electricity Supply Company Ltd (HESCOM)</MenuItem>
+                    <MenuItem value={1}>Jaipur Vidyut Vitran Nigam (JVVNL)</MenuItem>
+                    <MenuItem value={1}>Jamshedpur Utilities</MenuItem>
+                    <MenuItem value={1}>Jharkhand Bijli Vitran Nigam Limited (JBVNL)</MenuItem>
+                    <MenuItem value={1}>Jodhpur Vidyut Vitran Nigam Limited (JDVVNL)</MenuItem>
+                    <MenuItem value={1}>Kanpur Electricity Supply Company</MenuItem>
+                    <MenuItem value={1}>Kota Electricity Distribution Limited (KEDL)</MenuItem>
+                    <MenuItem value={1}>Kota Electricity Distribution Limited (KEDL) - Old</MenuItem>
+                    <MenuItem value={1}>M.P. Madhya Kshetra Vidyut Vitaran - RURAL</MenuItem>
+                    <MenuItem value={1}>M.P. Madhya Kshetra Vidyut Vitaran - URBAN</MenuItem>
+                    <MenuItem value={1}>M.P. Poorv Kshetra Vidyut Vitaran - RURAL</MenuItem>
+                    <MenuItem value={1}>M.P. Poorv Kshetra Vidyut Vitaran - URBAN</MenuItem>
+                    <MenuItem value={1}>Madhya Gujarat Vij Company Limited (MGVCL)</MenuItem>
+                    <MenuItem value={1}>Maharashtra State Electricity Distbn Co Ltd</MenuItem>
+                    <MenuItem value={1}>Meghalaya Power Dist Corp Ltd</MenuItem>
+                    <MenuItem value={30}>NESCO, Odisha</MenuItem>
+                    <MenuItem value={1}>New Delhi Municipal Council (NDMC) - Electricity</MenuItem>
+                    <MenuItem value={1}>North Bihar Power Distribution Company Ltd.</MenuItem>
+                    <MenuItem value={1}>Paschim Gujarat Vij Company Limited (PGVCL)</MenuItem>
+                    <MenuItem value={1}>Punjab State Power Corporation Ltd (PSPCL)</MenuItem>
+                    <MenuItem value={1}>SNDL Nagpur</MenuItem>
+                    <MenuItem value={1}>SOUTHCO, Odisha</MenuItem>
+                    <MenuItem value={1}>Sikkim Power - RURAL</MenuItem>
+                    <MenuItem value={1}>South Bihar Power Distribution Company Ltd.</MenuItem>
+                    <MenuItem value={1}>TP Ajmer Distribution Ltd (TPADL)</MenuItem>
+                    <MenuItem value={1}>TP Ajmer Distribution Ltd (TPADL) - Old</MenuItem>
+                    <MenuItem value={1}>Tamil Nadu Electricity Board (TNEB)</MenuItem>
+                    <MenuItem value={1}>Tata Power - Delhi</MenuItem>
+                    <MenuItem value={1}>Tata Power - Mumbai</MenuItem>
+                    <MenuItem value={1}>Torrent Power - Agra</MenuItem>
+                    <MenuItem value={1}>Torrent Power - Ahmedabad</MenuItem>
+                    <MenuItem value={1}>Torrent Power - Bhiwandi</MenuItem>
+                    <MenuItem value={1}>Torrent Power - Surat</MenuItem>
+                    <MenuItem value={1}>Tripura Electricity Corp Ltd</MenuItem>
+                    <MenuItem value={1}>Uttar Gujarat Vij Company Limited (UGVCL)</MenuItem>
+                    <MenuItem value={1}>Uttar Haryana Bijli Vitran Nigam (UHBVN)</MenuItem>
+                    <MenuItem value={1}>Uttar Pradesh Power Corp Ltd (UPPCL) - RURAL</MenuItem>
+                    <MenuItem value={1}>Uttar Pradesh Power Corp Ltd (UPPCL) - URBAN</MenuItem>
+                    <MenuItem value={1}>Uttarakhand Power Corporation Limited</MenuItem>
+                    <MenuItem value={1}>WESCO Utility</MenuItem>
+                    <MenuItem value={1}>West Bengal State Electricity Distribution Co. Ltd (WBSEDCL)</MenuItem>
+                   
+                  </Select>              
+                    
                 </FormControl>
                 </Typography>
               </Grid>
             </div>
             </Paper>
 
-            <Paper elevation={1} className="paper">
+            <Paper elevation={1} className="paper PB">
               <Grid xs={12}>
                 <Typography variant="h5" component="h3" className="tittleSec">
                   My detail
@@ -251,7 +299,7 @@ class PayBill extends Component {
                 <Grid xs={4}>
                   <form className="formControl" noValidate autoComplete="off">
                     <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
-                    Mobil Number*
+                    Mobile Number*
                     </InputLabel>
                     <TextField
                       id="standard-name"
@@ -279,11 +327,17 @@ class PayBill extends Component {
                 </Grid>
               </div>
 
+             
+              <Grid xs={12}>
+                <Typography variant="h5" component="h3" className="tittleSec">
+                    Consumer Detail
+                </Typography>
+              </Grid>
               <div className="card">
               <Grid xs={4}>
                   <form className="formControl" noValidate autoComplete="off">
                     <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
-                    Consumer ID*
+                    Consumer Number*
                     </InputLabel>
                     <TextField
                       id="standard-name"
@@ -293,6 +347,12 @@ class PayBill extends Component {
                       margin="normal"
                     />
                   </form>
+                </Grid>
+
+                <Grid xs={8}>
+                  <Fab className="btnDone PB">
+                    <Done />
+                  </Fab>
                 </Grid>
               </div>
           </Paper>

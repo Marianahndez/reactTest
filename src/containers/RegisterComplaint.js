@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
-import classNames from 'classnames';
 import '../assets/styles/App.scss';
 import AppBar from '@material-ui/core/AppBar';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
 import { Toolbar, withStyles, MenuItem, Button } from '@material-ui/core';
-import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import PropTypes from 'prop-types';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
@@ -13,8 +9,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
-import Listalt from '@material-ui/icons/ListAlt'
-import MailIcon from '@material-ui/icons/Mail';
+import Listalt from '@material-ui/icons/ListAlt';
 import Error from '@material-ui/icons/ReportProblem';
 import Typography from '@material-ui/core/Typography';
 import { Link } from "react-router-dom";
@@ -22,15 +17,12 @@ import Paper from '@material-ui/core/Paper';
 import Input from '@material-ui/core/Input';
 import Grid from '@material-ui/core/Grid';
 import InputLabel from '@material-ui/core/InputLabel';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import NativeSelect from '@material-ui/core/NativeSelect';
 import TextField from '@material-ui/core/TextField';
 import Drawer from '@material-ui/core/Drawer';
 import Radio from '@material-ui/core/Radio';
-import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
-import RadioButtonCheckedIcon from '@material-ui/icons/RadioButtonChecked';
+import ImgLogo from '../assets/img/logobbps.svg';
 
 const drawerSize = 240;
  
@@ -68,28 +60,6 @@ const drawerSize = 240;
     },
   },
   checked: {},
-/*   drawer: {
-    width: drawerSize,
-    flexShrink: 0,
-    whiteSpace: 'nowrap',
-  },
-  drawerOpen: {
-    width: drawerSize,
-    transition: theme.transitions.create('width', {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  },
-  drawerClose: {
-    transition: theme.transitions.create('width', {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-    overflowX: 'hidden',
-    [theme.breakpoints.up('sm')]: {
-      width: theme.spacing.unit * 9 + 1,
-    },
-  }, */
 }); 
 
 class RegisterComplaint extends Component {
@@ -117,12 +87,14 @@ class RegisterComplaint extends Component {
     const menu = (
       <div className="list">
         <List>
+            {/* <Link to='/PayBill'> */}
               <ListItem button >
                 <ListItemIcon className="iconmenu">
                   <InboxIcon />
                 </ListItemIcon>
                 <ListItemText className="menutxt" primary="Pay Bill" />
               </ListItem>
+            {/* </Link> */}
             <Divider />
 
             {/* <Link to='/RegisterComplaint'> */}
@@ -135,7 +107,7 @@ class RegisterComplaint extends Component {
             {/* </Link> */}
             <Divider />
 
-            {/* <Link to='/ComplainStatus'> */}
+            {/* <Link to='/ComplaintStatus'> */}
               <ListItem button >
                 <ListItemIcon className="iconmenu">
                   <Error />
@@ -158,6 +130,7 @@ class RegisterComplaint extends Component {
               <Typography variant="h6" color="inherit" className="appbarmenu" noWrap>
                 Paykii / BBPS
               </Typography>
+              <img src={ImgLogo} className="imglogo" />
             </Toolbar>
           </AppBar>
 
@@ -171,21 +144,6 @@ class RegisterComplaint extends Component {
           <div className={classes.toolbar} />
             {menu}
       </Drawer>
-
-          {/* <SwipeableDrawer
-          open={this.state.left}
-          onClose={this.toggleDrawer('left', false)}
-          onOpen={this.toggleDrawer('left', true)}
-        >
-          <div
-            tabIndex={0}
-            role="button"
-            onClick={this.toggleDrawer('left', false)}
-            onKeyDown={this.toggleDrawer('left', false)}
-          >
-            {menu}
-          </div>
-        </SwipeableDrawer> */}
 
         <Grid xs ={12} className="Appheader">
           <Paper elevation={1} className="paper">
@@ -257,7 +215,7 @@ class RegisterComplaint extends Component {
                 <Grid xs={4}>
                   <form className="formControl" noValidate autoComplete="off">
                     <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
-                    Mobil Number*
+                    Mobile Number*
                     </InputLabel>
                     <TextField
                       id="standard-name"
@@ -283,6 +241,24 @@ class RegisterComplaint extends Component {
                     />
                   </form>
                 </Grid>
+                
+              </div>
+
+              <div className="card">
+              {/* <Grid xs={4}>
+                  <form className="formControl" noValidate autoComplete="off">
+                    <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
+                      Enter OTP
+                    </InputLabel>
+                    <TextField
+                      id="standard-name"
+                      className="textField"
+                      value="OTP"
+                      onChange={this.handleChange('name')}
+                      margin="normal"
+                    />
+                  </form>
+                </Grid> */}
 
                 <Grid xs={4}>
                   <form className="formControl" noValidate autoComplete="off">
@@ -298,25 +274,8 @@ class RegisterComplaint extends Component {
                     />
                   </form>
                 </Grid>
-              </div>
 
-              <div className="card">
-              <Grid xs={4}>
-                  <form className="formControl" noValidate autoComplete="off">
-                    <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
-                      Enter OTP
-                    </InputLabel>
-                    <TextField
-                      id="standard-name"
-                      className="textField"
-                      value="OTP"
-                      onChange={this.handleChange('name')}
-                      margin="normal"
-                    />
-                  </form>
-                </Grid>
-
-                <Grid xs={7} className="buttonsArea">
+                <Grid xs={8} className="buttonsArea">
                   <Button className="btnGeneral" disabled>Resend OTP</Button>
                   <Button className="btnGeneral">Generate OTP</Button>
                 </Grid>

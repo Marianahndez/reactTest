@@ -7,6 +7,7 @@
   font-family: 'Lato', sans-serif;
   src: url('https://fonts.googleapis.com/css?family=Lato');
 }
+
 .App {
   text-align: center;
   .list{
@@ -21,13 +22,16 @@
     position: relative;
     width: 82.5%;
     margin-left: 17.5%;
+    &.appPay_Bill{
+      height: 120vh !important;
+      
+    }&.PB{
+      height: 110vh !important;
+      
+    }
     .menuButton{
       position: relative;
       left: 40px;
-    }
-    .appBar{
-      z-index: 1201;
-      background-color: red;
     }
     .paper{
       position: relative;
@@ -50,6 +54,11 @@
       }
       &:nth-child(2){
         height: 53vh;
+        &.paperPay_Bill{
+          height: 75vh !important;
+        }&.PB{
+          height: 60vh !important;
+        }
       }
     }
     .card{
@@ -94,7 +103,7 @@
   }
 }
 
-.MuiListItem-root-101.MuiListItem-selected-112{
+.MuiListItem-root-63.MuiListItem-selected-74{
   background-color: rgba(1, 1, 2, 0.59) !important;
   .iconmenu{
     color: white;
@@ -106,6 +115,9 @@
     color: white !important;
     font-family: "Roboto Slab" !important;
     font-size: 18px;
+  }
+  svg{
+    color: white;
   }
 }
 
@@ -140,8 +152,26 @@
     box-shadow: 0px 2px 10px 1px #808080ad;
     margin: 10px !important;
   }
-  
-  
+}
+.MuiButton-root-295:hover {
+  text-decoration: none;
+  background-color: #3e8424c4 !important;
+}
+.btnCS{
+  position: relative;
+  .btnGeneral{
+    background: #3e8424;
+    float: left;
+    color: white !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    font-family: 'Lato' !important;
+    padding: 5px 25px !important;
+    border-radius: 20px !important;
+    letter-spacing: 1px !important;
+    box-shadow: 0px 2px 10px 1px #808080ad;
+    margin: 10px !important;
+  }
 }
 .MuiButton-root-113.MuiButton-disabled-317.btnGeneral{
   background: #3333339e !important;
@@ -165,18 +195,34 @@
   padding: 0 15px;
   height: 10vh;
   margin: 10px;
-  .SelectMain{
-    margin-top: 32px;
-  }
-  .formControl_select{
-    width: 80%;
-    margin-top: 10px;
-  }
+}
+.SelectMain{
+  margin-top: 30px !important;
+}
+.formControl_select{
+  width: 80%;
+  margin-top: 10px !important;
 }
 
 .btnDone{
   position: relative !important;
-  left: 105%;
+ /*  left: 105%; */
+  left: 50%;
+  top: 30%;
   background: #3e8424 !important;
   color: white !important;
+  &.PB{
+    top: 50%;
+    left: 85%;
+  }
+}
+
+.imglogo{
+  width: 10%;
+  position: relative;
+  left: 74%;
+}
+.logoBA{
+  position: relative;
+  width: 15%;
 }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
-import './assets/styles/App.scss';
+import '../assets/styles/App.scss';
 import AppBar from '@material-ui/core/AppBar';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -33,6 +33,8 @@ import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
 import RadioButtonCheckedIcon from '@material-ui/icons/RadioButtonChecked';
 import Fab from '@material-ui/core/Fab';
 import Done from '@material-ui/icons/Done';
+import ImgLogo from '../assets/img/logobbps.svg';
+import LogoBA from '../assets/img/LogoBillAvenue.svg';
 
 /* Biller & System, same views */
 
@@ -72,31 +74,9 @@ const drawerSize = 240;
     },
   },
   checked: {},
-/*   drawer: {
-    width: drawerSize,
-    flexShrink: 0,
-    whiteSpace: 'nowrap',
-  },
-  drawerOpen: {
-    width: drawerSize,
-    transition: theme.transitions.create('width', {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  },
-  drawerClose: {
-    transition: theme.transitions.create('width', {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-    overflowX: 'hidden',
-    [theme.breakpoints.up('sm')]: {
-      width: theme.spacing.unit * 9 + 1,
-    },
-  }, */
 }); 
 
-class App extends Component {
+class RCB extends Component {
   state = {
     age: '1',
     name: '',
@@ -160,9 +140,8 @@ class App extends Component {
             id="appbar"
           >
             <Toolbar>
-              <Typography variant="h6" color="inherit" className="appbarmenu" noWrap>
-                Paykii / BBPS
-              </Typography>
+              <img src={LogoBA} className="logoBA" />
+              <img src={ImgLogo} className="imglogo" />
             </Toolbar>
           </AppBar>
 
@@ -234,8 +213,8 @@ class App extends Component {
                   >
                     <MenuItem value={20}><em>Select Participation Type</em></MenuItem>
                     <MenuItem value={15}>Agent</MenuItem>
-                    <MenuItem value={1}>Biller</MenuItem>
-                    <MenuItem value={18}>System</MenuItem>
+                    <MenuItem value={18}>Biller</MenuItem>
+                    <MenuItem value={1}>System</MenuItem>
                   </Select>
                 </FormControl>
                 </Typography>
@@ -250,7 +229,7 @@ class App extends Component {
                   Register Service Complaint
                 </Typography>
               </Grid>
-              <div className="card_rc">
+              <div className="card">
                 <Grid xs={3}>
                   <form className="formControl" noValidate autoComplete="off">
                     <InputLabel disabled className="labelDetails" shrink htmlFor="age-native-label-placeholder">
@@ -274,7 +253,7 @@ class App extends Component {
                     <TextField
                       id="standard-name"
                       className="textField"
-                      value="Biller"
+                      value="System"
                       onChange={this.handleChange('name')}
                       margin="normal"
                     />
@@ -336,7 +315,7 @@ class App extends Component {
                 </Grid>
               </div>
 
-              <div className="card_rc">
+              <div className="card">
                 <Grid xs={6}>
                   <form className="formControl" noValidate autoComplete="off">
                     <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
@@ -368,11 +347,13 @@ class App extends Component {
                 </Grid>
 
                 <Grid xs={3}>
-
+                  <Fab className="btnDone">
+                    <Done />
+                  </Fab>
                 </Grid>
               </div>
 
-              <div className="card_rc">
+              {/* <div className="card_rc">
               <Grid xs={4}>
                   <form className="formControl" noValidate autoComplete="off">
                     <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
@@ -391,11 +372,8 @@ class App extends Component {
                 <Grid xs={7} className="buttonsArea">
                   <Button className="btnGeneral" disabled>Resend OTP</Button>
                   <Button className="btnGeneral" disabled>Generate OTP</Button>
-                  <Fab className="btnDone">
-                    <Done />
-                  </Fab>
                 </Grid>
-              </div>
+              </div> */}
           </Paper>
         </Grid>
       </div>
@@ -403,8 +381,8 @@ class App extends Component {
   }
 }
 
-App.propTypes = {
+RCB.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(App);
+export default withStyles(styles)(RCB);

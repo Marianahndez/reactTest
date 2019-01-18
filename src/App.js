@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
-import classNames from 'classnames';
 import './assets/styles/App.scss';
 import AppBar from '@material-ui/core/AppBar';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import { Toolbar, withStyles, MenuItem } from '@material-ui/core';
-import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
+import { Toolbar, withStyles, MenuItem, Button } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
@@ -14,7 +10,6 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import Listalt from '@material-ui/icons/ListAlt'
-import MailIcon from '@material-ui/icons/Mail';
 import Error from '@material-ui/icons/ReportProblem';
 import Typography from '@material-ui/core/Typography';
 import { Link } from "react-router-dom";
@@ -22,12 +17,11 @@ import Paper from '@material-ui/core/Paper';
 import Input from '@material-ui/core/Input';
 import Grid from '@material-ui/core/Grid';
 import InputLabel from '@material-ui/core/InputLabel';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import NativeSelect from '@material-ui/core/NativeSelect';
 import TextField from '@material-ui/core/TextField';
 import Drawer from '@material-ui/core/Drawer';
+import ImgLogo from './assets/img/logobbps.svg';
 
 const drawerSize = 240;
  
@@ -58,28 +52,6 @@ const drawerSize = 240;
     flexGrow: 1,
     padding: theme.spacing.unit * 3,
   },
-/*   drawer: {
-    width: drawerSize,
-    flexShrink: 0,
-    whiteSpace: 'nowrap',
-  },
-  drawerOpen: {
-    width: drawerSize,
-    transition: theme.transitions.create('width', {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  },
-  drawerClose: {
-    transition: theme.transitions.create('width', {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-    overflowX: 'hidden',
-    [theme.breakpoints.up('sm')]: {
-      width: theme.spacing.unit * 9 + 1,
-    },
-  }, */
 }); 
 
 class PayBill extends Component {
@@ -106,32 +78,34 @@ class PayBill extends Component {
     const menu = (
       <div className="list">
         <List>
-              <ListItem button selected>
-                <ListItemIcon className="iconmenu">
-                  <InboxIcon />
-                </ListItemIcon>
-                <ListItemText className="menutxt" primary="Pay Bill" />
-              </ListItem>
+              <Link to='/PayBill'>
+                <ListItem button selected>
+                  <ListItemIcon className="iconmenu">
+                    <InboxIcon />
+                  </ListItemIcon>
+                  <ListItemText className="menutxt" primary="Pay Bill" />
+                </ListItem>
+              </Link>
             <Divider />
 
-            {/* <Link to='/RegisterComplaint'> */}
+            <Link to='/RegisterComplaint'>
               <ListItem button >
                 <ListItemIcon>
                   <Listalt />
                 </ListItemIcon>
                 <ListItemText className="menutxt" primary="Register Complaint" />
               </ListItem>
-            {/* </Link> */}
+            </Link>
             <Divider />
 
-            {/* <Link to='/ComplainStatus'> */}
+            <Link to='/ComplaintStatus'>
               <ListItem button >
                 <ListItemIcon>
                   <Error />
                 </ListItemIcon>
                 <ListItemText className="menutxt" primary="Complaint Status" />
               </ListItem>
-            {/* </Link> */}
+            </Link>
             <Divider />
         </List>
       </div>
@@ -142,14 +116,12 @@ class PayBill extends Component {
           <AppBar position="fixed"
               className={classes.appBar}
               id="appbar"
-            /* className={classNames(classes.appBar, {
-              [classes.appBarShift]: this.state.open,
-            })} */
           >
             <Toolbar>
               <Typography variant="h6" color="inherit" className="appbarmenu" noWrap>
-                Paikyy / BBP
+                Paykii / BBPS
               </Typography>
+              <img src={ImgLogo} className="imglogo" />
             </Toolbar>
           </AppBar>
 
@@ -163,21 +135,6 @@ class PayBill extends Component {
           <div className={classes.toolbar} />
             {menu}
       </Drawer>
-
-          {/* <SwipeableDrawer
-          open={this.state.left}
-          onClose={this.toggleDrawer('left', false)}
-          onOpen={this.toggleDrawer('left', true)}
-        >
-          <div
-            tabIndex={0}
-            role="button"
-            onClick={this.toggleDrawer('left', false)}
-            onKeyDown={this.toggleDrawer('left', false)}
-          >
-            {menu}
-          </div>
-        </SwipeableDrawer> */}
 
         <Grid xs ={12} className="Appheader">
           <Paper elevation={1} className="paper">
@@ -199,11 +156,11 @@ class PayBill extends Component {
                     className="SelectMain"
                     input={<Input name="age" id="age-native-label-placeholder" />}
                   >
-                    <MenuItem value={1}><em>Please Select</em></MenuItem>
+                    <MenuItem value={11}><em>Please Select</em></MenuItem>
                     <MenuItem value={10}>Broadband Postpaid</MenuItem>
                     <MenuItem value={20}>DTH</MenuItem>
                     <MenuItem value={30}>Electricity</MenuItem>
-                    <MenuItem value={40}>Gas</MenuItem>
+                    <MenuItem value={1}>Gas</MenuItem>
                     <MenuItem value={50}>Landline Postpaid</MenuItem>
                     <MenuItem value={60}>Mobile Postpaid</MenuItem>
                     <MenuItem value={70}>Water</MenuItem>
@@ -293,6 +250,10 @@ class PayBill extends Component {
                       margin="normal"
                     />
                   </form>
+                </Grid>
+
+                <Grid xs={8} className="buttonsArea">
+                  <Button className="btnGeneral">Fetch Bill</Button>
                 </Grid>
               </div>
           </Paper>
