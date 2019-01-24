@@ -63,7 +63,7 @@ const drawerSize = 240;
   checked: {},
 }); 
 
-class RegisterComplaint_TR extends Component {
+class RegisterComplaint extends Component {
   state = {
     age: '1',
     name: '',
@@ -87,7 +87,7 @@ class RegisterComplaint_TR extends Component {
 
     const menu = (
       <div className="list">
-        <List>
+        <List className="topPadd">
             {/* <Link to='/PayBill'> */}
               <ListItem button >
                 <ListItemIcon className="iconmenu">
@@ -128,8 +128,8 @@ class RegisterComplaint_TR extends Component {
             id="appbar"
           >
             <Toolbar>
-              <img src={LogoBA} className="logoBA" />
-              <img src={ImgLogo} className="imglogo" />
+                <img src={LogoBA} className="logoBA" />
+                <img src={ImgLogo} className="imglogo" />
             </Toolbar>
           </AppBar>
 
@@ -186,7 +186,7 @@ class RegisterComplaint_TR extends Component {
                   <Radio
                     checked={this.state.selectedValue === 'c'}
                     onChange={this.handleChange}
-                    value="a"
+                    value="c"
                     name="radio-button-demo"
                     aria-label="C"
                     classes={{
@@ -211,7 +211,7 @@ class RegisterComplaint_TR extends Component {
                 </Grid>
               </div>
               <div className="card">
-                <Grid xs={3}>
+                <Grid xs={4}>
                   <form className="formControl" noValidate autoComplete="off">
                     <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
                     Mobile Number*
@@ -219,37 +219,37 @@ class RegisterComplaint_TR extends Component {
                     <TextField
                       id="standard-name"
                       className="textField"
-                      value="91+ "
+                      value="+91"
                       onChange={this.handleChange('name')}
                       margin="normal"
                     />
                   </form>
                 </Grid>
 
-                <Grid xs={3}>
+                <Grid xs={4}>
                   <form className="formControl" noValidate autoComplete="off">
                     <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
-                    From Date*
+                      From Date*
                     </InputLabel>
                     <TextField
                       id="standard-name"
                       className="textField"
-                      value="18-01-2019"
+                      value="15-01-2019"
                       onChange={this.handleChange('name')}
                       margin="normal"
                     />
                   </form>
                 </Grid>
 
-                <Grid xs={3}>
+                <Grid xs={4}>
                   <form className="formControl" noValidate autoComplete="off">
                     <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
-                    To Date* 
+                      To Date*
                     </InputLabel>
                     <TextField
                       id="standard-name"
                       className="textField"
-                      value="18-01-2019"
+                      value="15-01-2019"
                       onChange={this.handleChange('name')}
                       margin="normal"
                     />
@@ -271,8 +271,8 @@ class RegisterComplaint_TR extends Component {
   }
 }
 
-RegisterComplaint_TR.propTypes = {
+RegisterComplaint.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(RegisterComplaint_TR);
+export default withStyles(styles)(RegisterComplaint);

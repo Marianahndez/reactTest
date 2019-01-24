@@ -101,7 +101,7 @@ class RCB extends Component {
 
     const menu = (
       <div className="list">
-        <List>
+        <List className="topPadd">
               <ListItem button >
                 <ListItemIcon className="iconmenu">
                   <InboxIcon />
@@ -213,8 +213,8 @@ class RCB extends Component {
                   >
                     <MenuItem value={20}><em>Select Participation Type</em></MenuItem>
                     <MenuItem value={15}>Agent</MenuItem>
-                    <MenuItem value={18}>Biller</MenuItem>
-                    <MenuItem value={1}>System</MenuItem>
+                    <MenuItem value={1}>Biller</MenuItem>
+                    <MenuItem value={18}>System</MenuItem>
                   </Select>
                 </FormControl>
                 </Typography>
@@ -253,7 +253,7 @@ class RCB extends Component {
                     <TextField
                       id="standard-name"
                       className="textField"
-                      value="System"
+                      value="Biller"
                       onChange={this.handleChange('name')}
                       margin="normal"
                     />

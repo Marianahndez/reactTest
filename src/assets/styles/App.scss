@@ -12,16 +12,19 @@
   text-align: center;
   .list{
     margin-top: 60px;
+    .topPadd{
+      padding-top: 0px !important;
+    }
   }
   .Appheader {
     background-color: #6f6f6f66;
-    height: 98.25vh;
+    height: 100vh;
     flex-direction: column;
     font-size: calc(10px + 2vmin);
     color: white;
     position: relative;
     width: 82.5%;
-    margin-left: 17.5%;
+    margin-left: 18.5%;
     &.appPay_Bill{
       height: 120vh !important;
       
@@ -71,6 +74,7 @@
       width: 80%;
       .textField{
         width: 100%;
+        margin-top: 33px;
       }
       .labelMain{
         font-family:  'Lato' !important;
@@ -97,7 +101,7 @@
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
-  }
+  }  
   to {
     transform: rotate(360deg);
   }
