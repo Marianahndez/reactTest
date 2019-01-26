@@ -23,6 +23,9 @@ import TextField from '@material-ui/core/TextField';
 import Drawer from '@material-ui/core/Drawer';
 import ImgLogo from '../assets/img/logobbps.svg';
 import ImgLogoBA from '../assets/img/LogoBillAvenue.svg';
+import Stepper from '@material-ui/core/Stepper';
+import Step from '@material-ui/core/Step';
+import StepLabel from '@material-ui/core/StepLabel';
 
 const drawerSize = 240;
  
@@ -55,12 +58,48 @@ const drawerSize = 240;
   },
 }); 
 
+function getSteps() {
+  return ['Select a Biller', 'Select a Biller', 'Add your info'];
+}
+
+function getStepContent(stepIndex) {
+  switch (stepIndex) {
+    case 0:
+      return 'Select campaign settings...';
+    case 1:
+      return 'What is an ad group anyways?';
+    case 2:
+      return 'This is the bit I really care about!';
+    default:
+      return 'Unknown stepIndex';
+  }
+}
+
 class PayBill extends Component {
   state = {
     age: '1',
     name: '',
     multiline: 'Controlled',
     currency: 'EUR',
+    activeStep: 0,
+  };
+
+  handleNext = () => {
+    this.setState(state => ({
+      activeStep: state.activeStep + 1,
+    }));
+  };
+
+  handleBack = () => {
+    this.setState(state => ({
+      activeStep: state.activeStep - 1,
+    }));
+  };
+
+  handleReset = () => {
+    this.setState({
+      activeStep: 0,
+    });
   };
 
   handleChange = name => event => {
@@ -75,6 +114,8 @@ class PayBill extends Component {
 
   render() {
     const { classes } = this.props;
+    const steps = getSteps();
+    const { activeStep } = this.state;
 
     const menu = (
       <div className="list">
@@ -136,7 +177,40 @@ class PayBill extends Component {
       </Drawer>
 
         <Grid xs ={12} className="Appheader appPay_Bill">
-          <Paper elevation={1} className="paper">
+
+        <Stepper activeStep={activeStep} alternativeLabel className="stepper">
+          {steps.map(label => (
+            <Step key={label}>
+              <StepLabel>{label}</StepLabel>
+            </Step>
+          ))}
+        </Stepper>
+        <div>
+          {this.state.activeStep === steps.length ? (
+            <div>
+              <Typography className={classes.instructions}>All steps completed</Typography>
+              <Button onClick={this.handleReset}>Reset</Button>
+            </div>
+          ) : (
+            <div>
+              <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
+              <div>
+                <Button
+                  disabled={activeStep === 0}
+                  onClick={this.handleBack}
+                  className={classes.backButton}
+                >
+                  Back
+                </Button>
+                <Button variant="contained" color="primary" onClick={this.handleNext}>
+                  {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+                </Button>
+              </div>
+            </div>
+          )}
+        </div>
+
+          <Paper elevation={1} className="paper papperup">
             <Grid xs={12}>
               <Typography variant="h5" component="h3" className="mainHeader">
                 Pay Bill
@@ -180,7 +254,7 @@ class PayBill extends Component {
                     className="SelectMain"
                     input={<Input name="age" id="age-native-label-placeholder" />}
                   >
-                    <MenuItem value={51}><em>Please Select</em></MenuItem>
+                    {/* <MenuItem value={51}><em>Please Select</em></MenuItem>
                     <MenuItem value={1}>Idea Postpaid</MenuItem>
                     <MenuItem value={10}>APSPDCL-Southern Power Distribution CO AP Ltd</MenuItem>
                     <MenuItem value={20}>Adani Electricity Mumbai Limited</MenuItem>
@@ -189,7 +263,17 @@ class PayBill extends Component {
                     <MenuItem value={50}>Assam Power Distribution Company Ltd (NON-RAPDR)</MenuItem>
                     <MenuItem value={60}>Assam Power Distribution Company Ltd (RAPDR)</MenuItem>
                     <MenuItem value={70}>B.E.S.T Mumbai</MenuItem>
-                    <MenuItem value={80}>BSES Yamuna Power Limited</MenuItem>
+                    <MenuItem value={80}>BSES Yamuna Power Limited</MenuItem> */}
+
+                    <MenuItem value={51}><em>Please Select</em></MenuItem>
+                    <MenuItem value={11}>Airtel Postpaid</MenuItem>
+                    <MenuItem value={10}>Airtel Postpaid (Fetch &amp; Pay)</MenuItem>
+                    <MenuItem value={20}>BSNL Mobile Postpaid</MenuItem>
+                    <MenuItem value={1}>Idea Postpaid</MenuItem>
+                    <MenuItem value={40}>Jio Postpaid</MenuItem>
+                    <MenuItem value={50}>Tata Docomo CDMA Mobile Postpaid</MenuItem>
+                    <MenuItem value={60}>Tata Docomo GSM Mobile Postpaid</MenuItem>
+                    <MenuItem value={70}>Vodafone Postpaid</MenuItem>
                   </Select>
                 </FormControl>
                 </Typography>

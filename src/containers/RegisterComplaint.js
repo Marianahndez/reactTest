@@ -23,6 +23,10 @@ import TextField from '@material-ui/core/TextField';
 import Drawer from '@material-ui/core/Drawer';
 import Radio from '@material-ui/core/Radio';
 import ImgLogo from '../assets/img/logobbps.svg';
+import Stepper from '@material-ui/core/Stepper';
+import Step from '@material-ui/core/Step';
+import StepLabel from '@material-ui/core/StepLabel';
+import LogoBA from '../assets/img/LogoBillAvenue.svg';
 
 const drawerSize = 240;
  
@@ -61,6 +65,22 @@ const drawerSize = 240;
   },
   checked: {},
 }); 
+function getSteps() {
+  return ['Select a Biller', 'Select a Biller', 'Add your info'];
+}
+
+function getStepContent(stepIndex) {
+  switch (stepIndex) {
+    case 0:
+      return 'Select campaign settings...';
+    case 1:
+      return 'What is an ad group anyways?';
+    case 2:
+      return 'This is the bit I really care about!';
+    default:
+      return 'Unknown stepIndex';
+  }
+}
 
 class RegisterComplaint extends Component {
   state = {
@@ -69,6 +89,25 @@ class RegisterComplaint extends Component {
     multiline: 'Controlled',
     currency: 'EUR',
     selectedValue: 'c',
+    activeStep: 0,
+  };
+
+  handleNext = () => {
+    this.setState(state => ({
+      activeStep: state.activeStep + 1,
+    }));
+  };
+
+  handleBack = () => {
+    this.setState(state => ({
+      activeStep: state.activeStep - 1,
+    }));
+  };
+
+  handleReset = () => {
+    this.setState({
+      activeStep: 0,
+    });
   };
 
   handleChange = name => event => {
@@ -83,6 +122,8 @@ class RegisterComplaint extends Component {
 
   render() {
     const { classes } = this.props;
+    const steps = getSteps();
+    const { activeStep } = this.state;
 
     const menu = (
       <div className="list">
@@ -127,9 +168,7 @@ class RegisterComplaint extends Component {
             id="appbar"
           >
             <Toolbar>
-              <Typography variant="h6" color="inherit" className="appbarmenu" noWrap>
-                Paykii / BBPS
-              </Typography>
+              <img src={LogoBA} className="logoBA" />
               <img src={ImgLogo} className="imglogo" />
             </Toolbar>
           </AppBar>
@@ -146,6 +185,38 @@ class RegisterComplaint extends Component {
       </Drawer>
 
         <Grid xs ={12} className="Appheader">
+
+        <Stepper activeStep={activeStep} alternativeLabel className="stepper">
+          {steps.map(label => (
+            <Step key={label}>
+              <StepLabel>{label}</StepLabel>
+            </Step>
+          ))}
+        </Stepper>
+        <div>
+          {this.state.activeStep === steps.length ? (
+            <div>
+              <Typography className={classes.instructions}>All steps completed</Typography>
+              <Button onClick={this.handleReset}>Reset</Button>
+            </div>
+          ) : (
+            <div>
+              <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
+              <div>
+                <Button
+                  disabled={activeStep === 0}
+                  onClick={this.handleBack}
+                  className={classes.backButton}
+                >
+                  Back
+                </Button>
+                <Button variant="contained" color="primary" onClick={this.handleNext}>
+                  {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+                </Button>
+              </div>
+            </div>
+          )}
+        </div>
           <Paper elevation={1} className="paper">
             <Grid xs={12}>
               <Typography variant="h5" component="h3" className="mainHeader">

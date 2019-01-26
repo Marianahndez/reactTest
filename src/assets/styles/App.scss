@@ -38,7 +38,7 @@
     }
     .paper{
       position: relative;
-      top: 75px;
+      top: 25px;
       text-align: left;
       width: 96%;
       margin: 0 1.5%;
@@ -229,4 +229,17 @@
 .logoBA{
   position: relative;
   width: 15%;
+}
+
+.stepper{
+  position: relative;
+    top: 80px;
+    background: transparent !important;
+}
+.MuiStepIcon-root-252.MuiStepIcon-active-254{
+  color: #3e8424 !important;
+}
+
+.MuiStepIcon-root-252.MuiStepIcon-completed-255{
+  color: #3e8424 !important;
 }
