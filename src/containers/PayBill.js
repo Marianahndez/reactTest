@@ -56,6 +56,22 @@ const drawerSize = 240;
     padding: theme.spacing.unit * 3,
   },
 }); 
+function getSteps() {
+  return ['Select Biller', 'Fetch Bill', 'Pay Bill'];
+}
+
+function getStepContent(stepIndex) {
+  switch (stepIndex) {
+    case 0:
+      return 'Select campaign settings...';
+    case 1:
+      return 'What is an ad group anyways?';
+    case 2:
+      return 'This is the bit I really care about!';
+    default:
+      return 'Unknown stepIndex';
+  }
+}
 
 class PayBill extends Component {
   state = {

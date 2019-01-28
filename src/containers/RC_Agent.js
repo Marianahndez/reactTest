@@ -77,7 +77,7 @@ const drawerSize = 240;
   checked: {},
 }); 
 function getSteps() {
-  return ['Select a Biller', 'Select a Biller', 'Add your info'];
+  return ['Select Complaint Type', 'Select Participation Type', 'Enter Information'];
 }
 
 function getStepContent(stepIndex) {
@@ -233,23 +233,23 @@ class RCA extends Component {
           <Paper elevation={1} className="paper">
             <Grid xs={12}>
               <Typography variant="h5" component="h3" className="mainHeader">
-                Register Complaint
+                Complaint Type
               </Typography>
             </Grid>
             <div className="card">
             <Grid xs={4}>
                 <Typography component="p">
                 <FormControl className="formControl">
-                  <InputLabel className="labelMain" shrink htmlFor="age-native-label-placeholder">
+                  {/* <InputLabel className="labelMain" shrink htmlFor="age-native-label-placeholder">
                     Type of Complaint
-                  </InputLabel>
+                  </InputLabel> */}
                   <Select
                     value={this.state.age}
                     onChange={this.handleChange('age')}
                     className="SelectMain"
                     input={<Input name="age" id="age-native-label-placeholder" />}
                   >
-                    <MenuItem value={20}><em>Select Complaint Type</em></MenuItem>
+                    <MenuItem value={12}><em>Select Type of Complaint</em></MenuItem>
                     <MenuItem value={10}>Transaction Type</MenuItem>
                     <MenuItem value={1}>Service Type</MenuItem>
                   </Select>
@@ -269,9 +269,9 @@ class RCA extends Component {
                     className="SelectMain"
                     input={<Input name="age" id="age-native-label-placeholder" />}
                   >
-                    <MenuItem value={20}><em>Select Participation Type</em></MenuItem>
+                    <MenuItem value={15}><em>Select Type of Participation</em></MenuItem>
                     <MenuItem value={1}>Agent</MenuItem>
-                    <MenuItem value={15}>Biller</MenuItem>
+                    <MenuItem value={12}>Biller</MenuItem>
                     <MenuItem value={18}>System</MenuItem>
                   </Select>
                 </FormControl>
@@ -289,37 +289,7 @@ class RCA extends Component {
               </Grid>
               <div className="card">
                 <Grid xs={3}>
-                  <form className="formControl" noValidate autoComplete="off">
-                    <InputLabel disabled className="labelDetails" shrink htmlFor="age-native-label-placeholder">
-                    Type of Complaint
-                    </InputLabel>
-                    <TextField
-                      id="standard-name"
-                      className="textField"
-                      value="Service"
-                      onChange={this.handleChange('name')}
-                      margin="normal"
-                    />
-                  </form>
-                </Grid>
-
-                <Grid xs={3}>
-                  <form className="formControl" noValidate autoComplete="off">
-                    <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
-                    Participation Type
-                    </InputLabel>
-                    <TextField
-                      id="standard-name"
-                      className="textField"
-                      value="Agent"
-                      onChange={this.handleChange('name')}
-                      margin="normal"
-                    />
-                  </form>
-                </Grid>
-
-                <Grid xs={3}>
-                  <form className="formControl" noValidate autoComplete="off">
+                <form className="formControl" noValidate autoComplete="off">
                     <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
                       Agent ID*
                     </InputLabel>
@@ -354,9 +324,7 @@ class RCA extends Component {
                   </Select>
                 </FormControl>
                 </Grid>
-              </div>
 
-              <div className="card">
                 <Grid xs={6}>
                   <form className="formControl" noValidate autoComplete="off">
                     <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
@@ -372,6 +340,9 @@ class RCA extends Component {
                   </form>
                 </Grid>
 
+              </div>
+
+              <div className="card">
                 <Grid xs={3}>
                   <form className="formControl" noValidate autoComplete="off">
                     <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
@@ -387,10 +358,28 @@ class RCA extends Component {
                   </form>
                 </Grid>
 
+                <Grid xs={3} className="left buttonsArea">
+                <Button className="btnGeneral" disabled>Generate OTP</Button>
+                <Button className="btnGeneral" disabled>Resend OTP</Button>
+                </Grid>
+
                 <Grid xs={3}>
-                  <Fab className="btnDone">
-                    <Done />
-                  </Fab>
+                  <form className="formControl" noValidate autoComplete="off">
+                    <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
+                      Enter OTP*
+                    </InputLabel>
+                    <TextField
+                      id="standard-name"
+                      className="textField"
+                      value="OTP"
+                      onChange={this.handleChange('name')}
+                      margin="normal"
+                    />
+                  </form>
+                </Grid>
+
+                <Grid xs={3} className="left buttonsArea">
+                    <Button className="btnGeneral" disabled>Submit</Button>
                 </Grid>
               </div>
 

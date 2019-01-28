@@ -66,7 +66,7 @@ const drawerSize = 240;
   checked: {},
 }); 
 function getSteps() {
-  return ['Select a Biller', 'Select a Biller', 'Add your info'];
+  return ['Select Complaint Type', 'Select a Biller', 'Enter Information'];
 }
 
 function getStepContent(stepIndex) {
@@ -220,16 +220,13 @@ class RegisterComplaint extends Component {
           <Paper elevation={1} className="paper">
             <Grid xs={12}>
               <Typography variant="h5" component="h3" className="mainHeader">
-                Register Complaint
+                Complaint Type
               </Typography>
             </Grid>
             <div className="card">
             <Grid xs={4}>
                 <Typography component="p">
                 <FormControl className="formControl">
-                  <InputLabel className="labelMain" shrink htmlFor="age-native-label-placeholder">
-                    Type of Complaint
-                  </InputLabel>
                   <Select
                     value={this.state.age}
                     onChange={this.handleChange('age')}
@@ -247,10 +244,10 @@ class RegisterComplaint extends Component {
             </div>
             </Paper>
 
-            <Paper elevation={1} className="paper">
+            <Paper elevation={1} className="paper PB">
               <Grid xs={12}>
                 <Typography variant="h5" component="h3" className="tittleSec">
-                  Transaction Type Complaint
+                  Register Transaction Complaint
                 </Typography>
               </Grid>
               <div className="cardSm">
@@ -312,24 +309,6 @@ class RegisterComplaint extends Component {
                     />
                   </form>
                 </Grid>
-                
-              </div>
-
-              <div className="card">
-              {/* <Grid xs={4}>
-                  <form className="formControl" noValidate autoComplete="off">
-                    <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
-                      Enter OTP
-                    </InputLabel>
-                    <TextField
-                      id="standard-name"
-                      className="textField"
-                      value="OTP"
-                      onChange={this.handleChange('name')}
-                      margin="normal"
-                    />
-                  </form>
-                </Grid> */}
 
                 <Grid xs={4}>
                   <form className="formControl" noValidate autoComplete="off">
@@ -345,10 +324,47 @@ class RegisterComplaint extends Component {
                     />
                   </form>
                 </Grid>
+                
+              </div>
 
-                <Grid xs={8} className="buttonsArea">
+              <div className="card">
+              <Grid xs={4}>
+                  <form className="formControl" noValidate autoComplete="off">
+                    <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
+                      Enter OTP
+                    </InputLabel>
+                    <TextField
+                      id="standard-name"
+                      className="textField"
+                      value="OTP"
+                      onChange={this.handleChange('name')}
+                      margin="normal"
+                    />
+                  </form>
+                </Grid>
+
+                {/* <Grid xs={4}>
+                  <form className="formControl" noValidate autoComplete="off">
+                    <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
+                      To Date*
+                    </InputLabel>
+                    <TextField
+                      id="standard-name"
+                      className="textField"
+                      value="15-01-2019"
+                      onChange={this.handleChange('name')}
+                      margin="normal"
+                    />
+                  </form>
+                </Grid> */}
+
+                <Grid xs={4} className="buttonsArea">
                   <Button className="btnGeneral" disabled>Resend OTP</Button>
                   <Button className="btnGeneral">Generate OTP</Button>
+                </Grid>
+                
+                <Grid xs={4} className="buttonsArea">
+                  <Button className="btnGeneral" disabled>Submit</Button>
                 </Grid>
               </div>
           </Paper>

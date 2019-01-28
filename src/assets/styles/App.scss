@@ -18,7 +18,7 @@
   }
   .Appheader {
     background-color: #6f6f6f66;
-    height: 100vh;
+    height: 120vh;
     flex-direction: column;
     font-size: calc(10px + 2vmin);
     color: white;
@@ -27,9 +27,6 @@
     margin-left: 18.5%;
     &.appPay_Bill{
       height: 120vh !important;
-      
-    }&.PB{
-      height: 110vh !important;
       
     }
     .menuButton{
@@ -55,8 +52,8 @@
         font-size: 26px;
         border-bottom: 2px solid gray;
       }
-      &:nth-child(2){
-        height: 53vh;
+      &:nth-child(1){
+        height: 53vh !important;
         &.paperPay_Bill{
           height: 75vh !important;
         }&.PB{
@@ -243,3 +240,10 @@
 .MuiStepIcon-root-252.MuiStepIcon-completed-255{
   color: #3e8424 !important;
 }
+
+.MuiDrawer-paper-51{
+  height: 110% !important;
+}
+
+// GRAY SELECTED
+// background: #80808069;

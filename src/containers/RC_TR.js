@@ -24,6 +24,9 @@ import Drawer from '@material-ui/core/Drawer';
 import Radio from '@material-ui/core/Radio';
 import ImgLogo from '../assets/img/logobbps.svg';
 import LogoBA from '../assets/img/LogoBillAvenue.svg';
+import Stepper from '@material-ui/core/Stepper';
+import Step from '@material-ui/core/Step';
+import StepLabel from '@material-ui/core/StepLabel';
 
 const drawerSize = 240;
  
@@ -63,6 +66,23 @@ const drawerSize = 240;
   checked: {},
 }); 
 
+function getSteps() {
+  return ['Select Complaint Type', 'Select Participation Type', 'Enter Information'];
+}
+
+function getStepContent(stepIndex) {
+  switch (stepIndex) {
+    case 0:
+      return 'Select campaign settings...';
+    case 1:
+      return 'What is an ad group anyways?';
+    case 2:
+      return 'This is the bit I really care about!';
+    default:
+      return 'Unknown stepIndex';
+  }
+}
+
 class RegisterComplaint extends Component {
   state = {
     age: '1',
@@ -70,8 +90,27 @@ class RegisterComplaint extends Component {
     multiline: 'Controlled',
     currency: 'EUR',
     selectedValue: 'c',
+    activeStep:0,
   };
 
+
+  handleNext = () => {
+    this.setState(state => ({
+      activeStep: state.activeStep + 1,
+    }));
+  };
+
+  handleBack = () => {
+    this.setState(state => ({
+      activeStep: state.activeStep - 1,
+    }));
+  };
+
+  handleReset = () => {
+    this.setState({
+      activeStep: 0,
+    });
+  };
   handleChange = name => event => {
     this.setState({ [name]: event.target.value, selectedValue: event.target.value });
   };
@@ -84,6 +123,8 @@ class RegisterComplaint extends Component {
 
   render() {
     const { classes } = this.props;
+    const steps = getSteps();
+    const { activeStep } = this.state;
 
     const menu = (
       <div className="list">
@@ -145,6 +186,37 @@ class RegisterComplaint extends Component {
       </Drawer>
 
         <Grid xs ={12} className="Appheader">
+        <Stepper activeStep={activeStep} alternativeLabel className="stepper">
+          {steps.map(label => (
+            <Step key={label}>
+              <StepLabel>{label}</StepLabel>
+            </Step>
+          ))}
+        </Stepper>
+        <div>
+          {this.state.activeStep === steps.length ? (
+            <div>
+              <Typography className={classes.instructions}>All steps completed</Typography>
+              <Button onClick={this.handleReset}>Reset</Button>
+            </div>
+          ) : (
+            <div>
+              <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
+              <div>
+                <Button
+                  disabled={activeStep === 0}
+                  onClick={this.handleBack}
+                  className={classes.backButton}
+                >
+                  Back
+                </Button>
+                <Button variant="contained" color="primary" onClick={this.handleNext}>
+                  {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+                </Button>
+              </div>
+            </div>
+          )}
+        </div>
           <Paper elevation={1} className="paper">
             <Grid xs={12}>
               <Typography variant="h5" component="h3" className="mainHeader">
@@ -184,7 +256,7 @@ class RegisterComplaint extends Component {
               <div className="cardSm">
                 <Grid xs={12}>
                   <Radio
-                    checked={this.state.selectedValue === 'c'}
+                    checked={this.state.selectedValue === ''}
                     onChange={this.handleChange}
                     value="c"
                     name="radio-button-demo"
@@ -197,7 +269,7 @@ class RegisterComplaint extends Component {
                   <span className="radioTxt">Mobile Number</span>
 
                   <Radio
-                    checked={this.state.selectedValue === ''}
+                    checked={this.state.selectedValue === 'c'}
                     onChange={this.handleChange}
                     value="c"
                     name="radio-button-demo"
@@ -214,12 +286,12 @@ class RegisterComplaint extends Component {
                 <Grid xs={4}>
                   <form className="formControl" noValidate autoComplete="off">
                     <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
-                    Mobile Number*
+                    Transaction Reference ID*
                     </InputLabel>
                     <TextField
                       id="standard-name"
                       className="textField"
-                      value="+91"
+                      value="Enter Transaction Reference ID"
                       onChange={this.handleChange('name')}
                       margin="normal"
                     />
@@ -259,9 +331,28 @@ class RegisterComplaint extends Component {
               </div>
 
               <div className="card">
-                <Grid xs={12} className="buttonsArea">
-                  <Button className="btnGeneral" disabled>Search</Button>
-                  <Button className="btnGeneral">Reset</Button>
+                <Grid xs={4} className="buttonsArea">
+                  <Button className="btnGeneral">Generate OTP</Button>
+                  <Button className="btnGeneral">Resend OTP</Button>
+                </Grid>
+
+              <Grid xs={4}>
+                  <form className="formControl" noValidate autoComplete="off">
+                    <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
+                      Enter OTP
+                    </InputLabel>
+                    <TextField
+                      id="standard-name"
+                      className="textField"
+                      value="OTP"
+                      onChange={this.handleChange('name')}
+                      margin="normal"
+                    />
+                  </form>
+                </Grid>
+
+                <Grid xs={6} className="buttonsArea">
+                  <Button className="btnGeneral">Search</Button>
                 </Grid>
               </div>
           </Paper>

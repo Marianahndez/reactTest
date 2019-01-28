@@ -59,7 +59,7 @@ const drawerSize = 240;
 }); 
 
 function getSteps() {
-  return ['Select a Biller', 'Select a Biller', 'Add your info'];
+  return ['Select Biller', 'Pay Bill'];
 }
 
 function getStepContent(stepIndex) {
@@ -229,13 +229,13 @@ class PayBill extends Component {
                     className="SelectMain"
                     input={<Input name="age" id="age-native-label-placeholder" />}
                   >
-                    <MenuItem value={18}><em>Please Select</em></MenuItem>
+                    <MenuItem value={1}><em>Please Select</em></MenuItem>
                     <MenuItem value={10}>Broadband Postpaid</MenuItem>
                     <MenuItem value={20}>DTH</MenuItem>
                     <MenuItem value={30}>Electricity</MenuItem>
                     <MenuItem value={40}>Gas</MenuItem>
                     <MenuItem value={50}>Landline Postpaid</MenuItem>
-                    <MenuItem value={1}>Mobile Postpaid</MenuItem>
+                    <MenuItem value={123}>Mobile Postpaid</MenuItem>
                     <MenuItem value={70}>Water</MenuItem>
                   </Select>
                 </FormControl>
@@ -265,11 +265,11 @@ class PayBill extends Component {
                     <MenuItem value={70}>B.E.S.T Mumbai</MenuItem>
                     <MenuItem value={80}>BSES Yamuna Power Limited</MenuItem> */}
 
-                    <MenuItem value={51}><em>Please Select</em></MenuItem>
+                    <MenuItem value={1}><em>Please Select</em></MenuItem>
                     <MenuItem value={11}>Airtel Postpaid</MenuItem>
                     <MenuItem value={10}>Airtel Postpaid (Fetch &amp; Pay)</MenuItem>
                     <MenuItem value={20}>BSNL Mobile Postpaid</MenuItem>
-                    <MenuItem value={1}>Idea Postpaid</MenuItem>
+                    <MenuItem value={123}>Idea Postpaid</MenuItem>
                     <MenuItem value={40}>Jio Postpaid</MenuItem>
                     <MenuItem value={50}>Tata Docomo CDMA Mobile Postpaid</MenuItem>
                     <MenuItem value={60}>Tata Docomo GSM Mobile Postpaid</MenuItem>
@@ -349,7 +349,7 @@ class PayBill extends Component {
                     <TextField
                       id="standard-name"
                       className="textField"
-                      value=" "
+                      value="Internet"
                       onChange={this.handleChange('name')}
                       margin="normal"
                     />
@@ -367,7 +367,7 @@ class PayBill extends Component {
                     className="SelectMain"
                     input={<Input name="age" id="age-native-label-placeholder" />}
                   >
-                    <MenuItem value={1}><em>Select Payment Mode</em></MenuItem>
+                    <MenuItem value={123}><em>Select Payment Mode</em></MenuItem>
                     <MenuItem value={10}>Internet Banking</MenuItem>
                   </Select>
                   </form>
@@ -398,7 +398,7 @@ class PayBill extends Component {
                     <TextField
                       id="standard-name"
                       className="textField"
-                      value="Enter Amount"
+                      value="CCF + Tax(es)"
                       onChange={this.handleChange('name')}
                       margin="normal"
                     />
@@ -413,7 +413,7 @@ class PayBill extends Component {
                     <TextField
                       id="standard-name"
                       className="textField"
-                      value="Enter Amount"
+                      value="Amount"
                       onChange={this.handleChange('name')}
                       margin="normal"
                     />

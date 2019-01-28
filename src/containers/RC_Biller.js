@@ -35,6 +35,9 @@ import Fab from '@material-ui/core/Fab';
 import Done from '@material-ui/icons/Done';
 import ImgLogo from '../assets/img/logobbps.svg';
 import LogoBA from '../assets/img/LogoBillAvenue.svg';
+import Stepper from '@material-ui/core/Stepper';
+import Step from '@material-ui/core/Step';
+import StepLabel from '@material-ui/core/StepLabel';
 
 /* Biller & System, same views */
 
@@ -76,6 +79,23 @@ const drawerSize = 240;
   checked: {},
 }); 
 
+function getSteps() {
+  return ['Select Complaint Type', 'Select Participation Type', 'Enter Information'];
+}
+
+function getStepContent(stepIndex) {
+  switch (stepIndex) {
+    case 0:
+      return 'Select campaign settings...';
+    case 1:
+      return 'What is an ad group anyways?';
+    case 2:
+      return 'This is the bit I really care about!';
+    default:
+      return 'Unknown stepIndex';
+  }
+}
+
 class RCB extends Component {
   state = {
     age: '1',
@@ -83,7 +103,25 @@ class RCB extends Component {
     multiline: 'Controlled',
     currency: 'EUR',
     selectedValue: 'c',
-    agentID: 'Enter Agent ID'
+    agentID: 'Enter Agent ID',
+    activeStep: 0,
+  };
+  handleNext = () => {
+    this.setState(state => ({
+      activeStep: state.activeStep + 1,
+    }));
+  };
+
+  handleBack = () => {
+    this.setState(state => ({
+      activeStep: state.activeStep - 1,
+    }));
+  };
+
+  handleReset = () => {
+    this.setState({
+      activeStep: 0,
+    });
   };
 
   handleChange = name => event => {
@@ -98,6 +136,8 @@ class RCB extends Component {
 
   render() {
     const { classes } = this.props;
+    const steps = getSteps();
+    const { activeStep } = this.state;
 
     const menu = (
       <div className="list">
@@ -172,6 +212,37 @@ class RCB extends Component {
         </SwipeableDrawer> */}
 
         <Grid xs ={12} className="Appheader">
+        <Stepper activeStep={activeStep} alternativeLabel className="stepper">
+          {steps.map(label => (
+            <Step key={label}>
+              <StepLabel>{label}</StepLabel>
+            </Step>
+          ))}
+        </Stepper>
+        <div>
+          {this.state.activeStep === steps.length ? (
+            <div>
+              <Typography className={classes.instructions}>All steps completed</Typography>
+              <Button onClick={this.handleReset}>Reset</Button>
+            </div>
+          ) : (
+            <div>
+              <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
+              <div>
+                <Button
+                  disabled={activeStep === 0}
+                  onClick={this.handleBack}
+                  className={classes.backButton}
+                >
+                  Back
+                </Button>
+                <Button variant="contained" color="primary" onClick={this.handleNext}>
+                  {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+                </Button>
+              </div>
+            </div>
+          )}
+        </div>
           <Paper elevation={1} className="paper">
             <Grid xs={12}>
               <Typography variant="h5" component="h3" className="mainHeader">
@@ -231,66 +302,18 @@ class RCB extends Component {
               </Grid>
               <div className="card">
                 <Grid xs={3}>
-                  <form className="formControl" noValidate autoComplete="off">
-                    <InputLabel disabled className="labelDetails" shrink htmlFor="age-native-label-placeholder">
-                    Type of Complaint
-                    </InputLabel>
-                    <TextField
-                      id="standard-name"
-                      className="textField"
-                      value="Service"
-                      onChange={this.handleChange('name')}
-                      margin="normal"
-                    />
-                  </form>
-                </Grid>
-
-                <Grid xs={3}>
-                  <form className="formControl" noValidate autoComplete="off">
+                <form className="formControl" noValidate autoComplete="off">
                     <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
-                    Participation Type
+                      Agent ID*
                     </InputLabel>
                     <TextField
                       id="standard-name"
                       className="textField"
-                      value="Biller"
+                      value={this.state.agentID}
                       onChange={this.handleChange('name')}
                       margin="normal"
                     />
                   </form>
-                </Grid>
-
-                <Grid xs={3}>
-                  <FormControl className="formControl_select">
-                    <InputLabel className="labelMain" shrink htmlFor="age-native-label-placeholder">
-                      Biller Name*
-                    </InputLabel>
-                    <Select
-                      value={this.state.age}
-                      onChange={this.handleChange('age')}
-                      className="SelectMain"
-                      input={<Input name="age" id="age-native-label-placeholder" />}
-                    >
-                      <MenuItem value={1}><em>Please Select</em></MenuItem>
-                      <MenuItem value={12}>Hathway Broadband</MenuItem>
-                      <MenuItem value={15}>Uttar Pradesh Power Corp Ltd (UPPCL) - RURAL</MenuItem>
-                      <MenuItem value={13}>Airtel Landline</MenuItem>
-                      <MenuItem value={16}>Airtel Postpaid</MenuItem>
-                      <MenuItem value={11}>Airtel Broadband</MenuItem>
-                      <MenuItem value={10}>Bangalore Water Supply and Sewerage Board</MenuItem>
-                      <MenuItem value={17}>Ajmer Vidyut Vitran Nigam Limited (AVVNL)</MenuItem>
-                      <MenuItem value={18}>Jodhpur Vidyut Vitran Nigam Limited (JDVVNL)</MenuItem>
-                      <MenuItem value={19}>Jharkhand Bijli Vitran Nigam Limited (JBVNL)</MenuItem>
-                      <MenuItem value={20}>WESCO Utility</MenuItem>
-                      <MenuItem value={21}>Chhattisgarh State Power Distribution Co. Ltd</MenuItem>
-                      <MenuItem value={22}>Charotar Gas Sahakari Mandali Ltd</MenuItem>
-                      <MenuItem value={23}>Vodafone Postpaid (Fetch & Pay)</MenuItem>
-                      <MenuItem value={24}>Greater Warangal Municipal Corporation - Water</MenuItem>
-                      <MenuItem value={25}>M.P. Madhya Kshetra Vidyut Vitaran - URBAN</MenuItem>
-                      <MenuItem value={26}>M.P. Madhya Kshetra Vidyut Vitaran - RURAL</MenuItem>
-                      <MenuItem value={27}>Spectranet Broadband</MenuItem>
-                    </Select>
-                  </FormControl>
                 </Grid>
 
                 <Grid xs={3}>
@@ -305,17 +328,16 @@ class RCB extends Component {
                     input={<Input name="age" id="age-native-label-placeholder" />}
                   >
                     <MenuItem value={1}><em>Please Select</em></MenuItem>
-                    <MenuItem value={12}>Biller available. Unable to transact</MenuItem>
-                    <MenuItem value={15}>Multiple failure for same biller</MenuItem>
-                    <MenuItem value={13}>Denomination not available</MenuItem>
-                    <MenuItem value={16}>Incorrect bill details displayed</MenuItem>
-                    <MenuItem value={11}>Incomplete / No details reflecting</MenuItem>
+                    <MenuItem value={12}>Agent not willing to print receipt</MenuItem>
+                    <MenuItem value={15}>Agent misbehaved</MenuItem>
+                    <MenuItem value={13}>Agent outlet closed</MenuItem>
+                    <MenuItem value={16}>Agent denying registration of complaint</MenuItem>
+                    <MenuItem value={11}>Agent not accepting certain bills</MenuItem>
+                    <MenuItem value={10}>Agent overcharging</MenuItem>
                   </Select>
                 </FormControl>
                 </Grid>
-              </div>
 
-              <div className="card">
                 <Grid xs={6}>
                   <form className="formControl" noValidate autoComplete="off">
                     <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
@@ -331,6 +353,9 @@ class RCB extends Component {
                   </form>
                 </Grid>
 
+              </div>
+
+              <div className="card">
                 <Grid xs={3}>
                   <form className="formControl" noValidate autoComplete="off">
                     <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
@@ -346,12 +371,31 @@ class RCB extends Component {
                   </form>
                 </Grid>
 
+                <Grid xs={3} className="left buttonsArea">
+                <Button className="btnGeneral" disabled>Generate OTP</Button>
+                <Button className="btnGeneral" disabled>Resend OTP</Button>
+                </Grid>
+
                 <Grid xs={3}>
-                  <Fab className="btnDone">
-                    <Done />
-                  </Fab>
+                  <form className="formControl" noValidate autoComplete="off">
+                    <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
+                      Enter OTP*
+                    </InputLabel>
+                    <TextField
+                      id="standard-name"
+                      className="textField"
+                      value="OTP"
+                      onChange={this.handleChange('name')}
+                      margin="normal"
+                    />
+                  </form>
+                </Grid>
+
+                <Grid xs={3} className="left buttonsArea">
+                    <Button className="btnGeneral" disabled>Submit</Button>
                 </Grid>
               </div>
+
 
               {/* <div className="card_rc">
               <Grid xs={4}>
