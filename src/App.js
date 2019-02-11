@@ -22,7 +22,7 @@ import Select from '@material-ui/core/Select';
 import TextField from '@material-ui/core/TextField';
 import Drawer from '@material-ui/core/Drawer';
 import ImgLogo from './assets/img/logobbps.svg';
-import LogoBA from './assets/img/LogoBillAvenue.svg';
+import LogoBA from './assets/img/Machnet.png';
 import Fab from '@material-ui/core/Fab';
 import Done from '@material-ui/icons/Done';
 import Stepper from '@material-ui/core/Stepper';
@@ -231,9 +231,9 @@ class PayBill extends Component {
                     <MenuItem value={10}>Broadband Postpaid</MenuItem>
                     <MenuItem value={20}>DTH</MenuItem>
                     <MenuItem value={30}>Electricity</MenuItem>
-                    <MenuItem value={1}>Gas</MenuItem>
+                    <MenuItem value={100}>Gas</MenuItem>
                     <MenuItem value={50}>Landline Postpaid</MenuItem>
-                    <MenuItem value={60}>Mobile Postpaid</MenuItem>
+                    <MenuItem value={1}>Mobile Postpaid</MenuItem>
                     <MenuItem value={70}>Water</MenuItem>
                   </Select>
                 </FormControl>
@@ -354,7 +354,7 @@ class PayBill extends Component {
 
                     <MenuItem value={100}>Please Select</MenuItem>
                     <MenuItem value={2}>Aavantika Gas Ltd.</MenuItem>
-                    <MenuItem value={1}>Adani Gas</MenuItem>
+                    <MenuItem value={1}>OTME</MenuItem>
                     <MenuItem value={4}>Central U.P. Gas Limited</MenuItem>
                     <MenuItem value={5}>Charotar Gas Sahakari Mandali Ltd</MenuItem>
                     <MenuItem value={6}>Gail Gas Limited</MenuItem>
@@ -396,7 +396,7 @@ class PayBill extends Component {
                     <TextField
                       id="standard-name"
                       className="textField"
-                      value="9841025363"
+                      value="9898990084"
                       onChange={this.handleChange('name')}
                       margin="normal"
                     />
@@ -411,7 +411,7 @@ class PayBill extends Component {
                     <TextField
                       id="standard-name"
                       className="textField"
-                      value="email@example.com"
+                      value=" "
                       onChange={this.handleChange('name')}
                       margin="normal"
                     />
@@ -421,12 +421,74 @@ class PayBill extends Component {
                 <Grid xs={3}>
                   <form className="formControl" noValidate autoComplete="off">
                     <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
-                    Consumer ID*
+                    a*
                     </InputLabel>
                     <TextField
                       id="standard-name"
                       className="textField"
-                      value="0123456789"
+                      value="10"
+                      onChange={this.handleChange('name')}
+                      margin="normal"
+                    />
+                  </form>
+                </Grid>
+
+                <Grid xs={3}>
+                  <form className="formControl" noValidate autoComplete="off">
+                    <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
+                    a b*
+                    </InputLabel>
+                    <TextField
+                      id="standard-name"
+                      className="textField"
+                      value="20"
+                      onChange={this.handleChange('name')}
+                      margin="normal"
+                    />
+                  </form>
+                </Grid>
+              </div>
+
+              <div className="card">
+                <Grid xs={3}>
+                  <form className="formControl" noValidate autoComplete="off">
+                    <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
+                    a b c*
+                    </InputLabel>
+                    <TextField
+                      id="standard-name"
+                      className="textField"
+                      value="30"
+                      onChange={this.handleChange('name')}
+                      margin="normal"
+                    />
+                  </form>
+                </Grid>
+
+                <Grid xs={3}>
+                  <form className="formControl" noValidate autoComplete="off">
+                    <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
+                    a b c d*
+                    </InputLabel>
+                    <TextField
+                      id="standard-name"
+                      className="textField"
+                      value="40"
+                      onChange={this.handleChange('name')}
+                      margin="normal"
+                    />
+                  </form>
+                </Grid>
+
+                <Grid xs={3}>
+                  <form className="formControl" noValidate autoComplete="off">
+                    <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
+                    a b c d e*
+                    </InputLabel>
+                    <TextField
+                      id="standard-name"
+                      className="textField"
+                      value="50"
                       onChange={this.handleChange('name')}
                       margin="normal"
                     />
@@ -455,7 +517,7 @@ class PayBill extends Component {
                     <TextField
                       id="standard-name"
                       className="textField"
-                      value="Shantilal Mehta"
+                      value="BBPS"
                       onChange={this.handleChange('name')}
                       margin="normal"
                     />
@@ -470,7 +532,7 @@ class PayBill extends Component {
                     <TextField
                       id="standard-name"
                       className="textField"
-                      value="Adani Gas"
+                      value="OTME"
                       onChange={this.handleChange('name')}
                       margin="normal"
                     />
@@ -485,7 +547,7 @@ class PayBill extends Component {
                     <TextField
                       id="standard-name"
                       className="textField"
-                      value="30-12-2018"
+                      value="2015-06-14"
                       onChange={this.handleChange('name')}
                       margin="normal"
                     />
@@ -500,7 +562,7 @@ class PayBill extends Component {
                     <TextField
                       id="standard-name"
                       className="textField"
-                      value="R201811087558"
+                      value="12303"
                       onChange={this.handleChange('name')}
                       margin="normal"
                     />
@@ -517,7 +579,7 @@ class PayBill extends Component {
                     <TextField
                       id="standard-name"
                       className="textField"
-                      value="NA"
+                      value="june"
                       onChange={this.handleChange('name')}
                       margin="normal"
                     />
@@ -532,7 +594,7 @@ class PayBill extends Component {
                     <TextField
                       id="standard-name"
                       className="textField"
-                      value="14-01-2019"
+                      value="2015-06-20"
                       onChange={this.handleChange('name')}
                       margin="normal"
                     />
@@ -547,7 +609,7 @@ class PayBill extends Component {
                     <TextField
                       id="standard-name"
                       className="textField"
-                      value=" "
+                      value="1000"
                       onChange={this.handleChange('name')}
                       margin="normal"
                     />
@@ -583,11 +645,11 @@ class PayBill extends Component {
                     className="SelectMain"
                     input={<Input name="age" id="age-native-label-placeholder" />}
                   >
-                    <MenuItem value={1}><em>Select Payment mode</em></MenuItem>
+                    <MenuItem value={100}><em>Select Payment mode</em></MenuItem>
                     <MenuItem value={10}>Broadband Postpaid</MenuItem>
                     <MenuItem value={20}>DTH</MenuItem>
                     <MenuItem value={30}>Electricity</MenuItem>
-                    <MenuItem value={12}>Gas</MenuItem>
+                    <MenuItem value={1}>Cash</MenuItem>
                     <MenuItem value={50}>Landline Postpaid</MenuItem>
                     <MenuItem value={60}>Mobile Postpaid</MenuItem>
                     <MenuItem value={70}>Water</MenuItem>
@@ -606,7 +668,7 @@ class PayBill extends Component {
                     className="SelectMain"
                     input={<Input name="age" id="age-native-label-placeholder" />}
                   >
-                    <MenuItem value={1}><em>Please Select</em></MenuItem>
+                    <MenuItem value={1}>Bill Amount (1000.00) = 1000.00</MenuItem>
                     <MenuItem value={10}>Broadband Postpaid</MenuItem>
                     <MenuItem value={20}>DTH</MenuItem>
                     <MenuItem value={30}>Electricity</MenuItem>
@@ -626,7 +688,7 @@ class PayBill extends Component {
                     <TextField
                       id="standard-name"
                       className="textField"
-                      value="Enter Amount"
+                      value="1000.00"
                       onChange={this.handleChange('name')}
                       margin="normal"
                     />
@@ -641,7 +703,7 @@ class PayBill extends Component {
                     <TextField
                       id="standard-name"
                       className="textField"
-                      value="CCF + Tax(es)"
+                      value="0.00"
                       onChange={this.handleChange('name')}
                       margin="normal"
                     />
@@ -658,7 +720,7 @@ class PayBill extends Component {
                     <TextField
                       id="standard-name"
                       className="textField"
-                      value="Amount"
+                      value="1000.00"
                       onChange={this.handleChange('name')}
                       margin="normal"
                     />

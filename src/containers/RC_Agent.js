@@ -100,7 +100,7 @@ class RCA extends Component {
     multiline: 'Controlled',
     currency: 'EUR',
     selectedValue: 'c',
-    agentID: 'Enter Agent ID',
+    agentID: 'CC01CC01513515340681',
     activeStep: 0,
   };
   handleNext = () => {
@@ -236,7 +236,7 @@ class RCA extends Component {
                 Complaint Type
               </Typography>
             </Grid>
-            <div className="card">
+            <div className="card topmnull">
             <Grid xs={4}>
                 <Typography component="p">
                 <FormControl className="formControl">
@@ -260,9 +260,9 @@ class RCA extends Component {
               <Grid xs={4}>
                 <Typography component="p">
                 <FormControl className="formControl">
-                  <InputLabel className="labelMain" shrink htmlFor="age-native-label-placeholder">
+                  {/* <InputLabel className="labelMain" shrink htmlFor="age-native-label-placeholder">
                     Service Type Complaint
-                  </InputLabel>
+                  </InputLabel> */}
                   <Select
                     value={this.state.age}
                     onChange={this.handleChange('age')}
@@ -314,13 +314,13 @@ class RCA extends Component {
                     className="SelectMain"
                     input={<Input name="age" id="age-native-label-placeholder" />}
                   >
-                    <MenuItem value={1}><em>Please Select</em></MenuItem>
+                    <MenuItem value={100}><em>Please Select</em></MenuItem>
                     <MenuItem value={12}>Agent not willing to print receipt</MenuItem>
                     <MenuItem value={15}>Agent misbehaved</MenuItem>
                     <MenuItem value={13}>Agent outlet closed</MenuItem>
                     <MenuItem value={16}>Agent denying registration of complaint</MenuItem>
                     <MenuItem value={11}>Agent not accepting certain bills</MenuItem>
-                    <MenuItem value={10}>Agent overcharging</MenuItem>
+                    <MenuItem value={1}>Agent overcharging</MenuItem>
                   </Select>
                 </FormControl>
                 </Grid>
@@ -333,7 +333,7 @@ class RCA extends Component {
                     <TextField
                       id="standard-name"
                       className="textField"
-                      value="Enter Complaint Description"
+                      value="Complaint initiated through API"
                       onChange={this.handleChange('name')}
                       margin="normal"
                     />
@@ -359,8 +359,8 @@ class RCA extends Component {
                 </Grid>
 
                 <Grid xs={3} className="left buttonsArea">
-                <Button className="btnGeneral" disabled>Generate OTP</Button>
-                <Button className="btnGeneral" disabled>Resend OTP</Button>
+                <Button className="otpbtn" disabled>Generate OTP</Button>
+                <Button className="otpbtn" disabled>Resend OTP</Button>
                 </Grid>
 
                 <Grid xs={3}>
@@ -404,6 +404,74 @@ class RCA extends Component {
                   <Button className="btnGeneral">Generate OTP</Button>
                 </Grid>
               </div> */}
+          </Paper>
+
+          <Paper elevation={1} className="paper">
+              <Grid xs={12}>
+                <Typography variant="h5" component="h3" className="tittleSec">
+                  Bill Information
+                </Typography>
+              </Grid>
+              <div className="card">
+                <Grid xs={3}>
+                <form className="formControl" noValidate autoComplete="off">
+                    <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
+                      Agent ID
+                    </InputLabel>
+                    <TextField
+                      id="standard-name"
+                      className="textField"
+                      value={this.state.agentID}
+                      onChange={this.handleChange('name')}
+                      margin="normal"
+                    />
+                  </form>
+                </Grid>
+
+                <Grid xs={3}>
+                <FormControl className="formControl_select">
+                  <InputLabel className="labelMain" shrink htmlFor="age-native-label-placeholder">
+                    Service Reason
+                  </InputLabel>
+                  <Select
+                    value={this.state.age}
+                    onChange={this.handleChange('age')}
+                    className="SelectMain"
+                    input={<Input name="age" id="age-native-label-placeholder" />}
+                  >
+                    <MenuItem value={100}><em>Please Select</em></MenuItem>
+                    <MenuItem value={12}>Agent not willing to print receipt</MenuItem>
+                    <MenuItem value={15}>Agent misbehaved</MenuItem>
+                    <MenuItem value={13}>Agent outlet closed</MenuItem>
+                    <MenuItem value={16}>Agent denying registration of complaint</MenuItem>
+                    <MenuItem value={11}>Agent not accepting certain bills</MenuItem>
+                    <MenuItem value={1}>Agent overcharging</MenuItem>
+                  </Select>
+                </FormControl>
+                </Grid>
+
+                <Grid xs={6}>
+                  <form className="formControl" noValidate autoComplete="off">
+                    <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
+                      Complaint Description
+                    </InputLabel>
+                    <TextField
+                      id="standard-name"
+                      className="textField"
+                      value="Complaint initiated through API"
+                      onChange={this.handleChange('name')}
+                      margin="normal"
+                    />
+                  </form>
+                </Grid>
+
+              </div>
+
+              <div className="card">
+                <Grid xs={12} className="left buttonsArea">
+                    <Button className="btnGeneral" disabled>Pay now</Button>
+                </Grid>
+              </div>
           </Paper>
         </Grid>
       </div>

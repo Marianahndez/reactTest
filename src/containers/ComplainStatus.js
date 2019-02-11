@@ -22,7 +22,7 @@ import Select from '@material-ui/core/Select';
 import TextField from '@material-ui/core/TextField';
 import Drawer from '@material-ui/core/Drawer';
 import ImgLogo from '../assets/img/logobbps.svg';
-import LogoBA from '../assets/img/LogoBillAvenue.svg';
+import LogoBA from '../assets/img/Machnet.png';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
@@ -226,9 +226,9 @@ class ComplaintStatus extends Component {
                         className="SelectMain"
                         input={<Input name="age" id="age-native-label-placeholder" />}
                       >
-                        <MenuItem value={1}><em>Select Complaint Type</em></MenuItem>
+                        <MenuItem value={12}><em>Select Complaint Type</em></MenuItem>
                         <MenuItem value={10}>Transaction Type</MenuItem>
-                        <MenuItem value={20}>Service Type</MenuItem>
+                        <MenuItem value={1}>Service Type</MenuItem>
                       </Select>
                     </FormControl>
                     </Typography>
@@ -243,7 +243,7 @@ class ComplaintStatus extends Component {
                       <TextField
                           id="standard-name"
                           className="textField"
-                          value="Enter Complaint ID"
+                          value="XD1495446616192"
                           onChange={this.handleChange('name')}
                           margin="normal"
                         />

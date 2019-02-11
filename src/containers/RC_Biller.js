@@ -34,7 +34,7 @@ import RadioButtonCheckedIcon from '@material-ui/icons/RadioButtonChecked';
 import Fab from '@material-ui/core/Fab';
 import Done from '@material-ui/icons/Done';
 import ImgLogo from '../assets/img/logobbps.svg';
-import LogoBA from '../assets/img/LogoBillAvenue.svg';
+import LogoBA from '../assets/img/Machnet.png';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
@@ -103,7 +103,7 @@ class RCB extends Component {
     multiline: 'Controlled',
     currency: 'EUR',
     selectedValue: 'c',
-    agentID: 'Enter Agent ID',
+    agentID: 'Enter ID',
     activeStep: 0,
   };
   handleNext = () => {
@@ -246,16 +246,14 @@ class RCB extends Component {
           <Paper elevation={1} className="paper">
             <Grid xs={12}>
               <Typography variant="h5" component="h3" className="mainHeader">
-                Register Complaint
+                Complaint Type
               </Typography>
             </Grid>
             <div className="card">
             <Grid xs={4}>
                 <Typography component="p">
                 <FormControl className="formControl">
-                  <InputLabel className="labelMain" shrink htmlFor="age-native-label-placeholder">
-                    Type of Complaint
-                  </InputLabel>
+                  
                   <Select
                     value={this.state.age}
                     onChange={this.handleChange('age')}
@@ -273,16 +271,14 @@ class RCB extends Component {
               <Grid xs={4}>
                 <Typography component="p">
                 <FormControl className="formControl">
-                  <InputLabel className="labelMain" shrink htmlFor="age-native-label-placeholder">
-                    Service Type Complaint
-                  </InputLabel>
+                  
                   <Select
                     value={this.state.age}
                     onChange={this.handleChange('age')}
                     className="SelectMain"
                     input={<Input name="age" id="age-native-label-placeholder" />}
                   >
-                    <MenuItem value={20}><em>Select Participation Type</em></MenuItem>
+                    <MenuItem value={11}><em>Select Type of Participation</em></MenuItem>
                     <MenuItem value={15}>Agent</MenuItem>
                     <MenuItem value={1}>Biller</MenuItem>
                     <MenuItem value={18}>System</MenuItem>
@@ -328,13 +324,13 @@ class RCB extends Component {
                     input={<Input name="age" id="age-native-label-placeholder" />}
                   >
                     <MenuItem value={1}><em>Please Select</em></MenuItem>
-                    <MenuItem value={12}>Agent not willing to print receipt</MenuItem>
+                    <MenuItem value={122}>Agent overcharging</MenuItem>
                     <MenuItem value={15}>Agent misbehaved</MenuItem>
                     <MenuItem value={13}>Agent outlet closed</MenuItem>
                     <MenuItem value={16}>Agent denying registration of complaint</MenuItem>
                     <MenuItem value={11}>Agent not accepting certain bills</MenuItem>
                     <MenuItem value={10}>Agent overcharging</MenuItem>
-                  </Select>
+                  </Select> 
                 </FormControl>
                 </Grid>
 

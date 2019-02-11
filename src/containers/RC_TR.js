@@ -23,7 +23,7 @@ import TextField from '@material-ui/core/TextField';
 import Drawer from '@material-ui/core/Drawer';
 import Radio from '@material-ui/core/Radio';
 import ImgLogo from '../assets/img/logobbps.svg';
-import LogoBA from '../assets/img/LogoBillAvenue.svg';
+import LogoBA from '../assets/img/Machnet.png';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
@@ -220,16 +220,13 @@ class RegisterComplaint extends Component {
           <Paper elevation={1} className="paper">
             <Grid xs={12}>
               <Typography variant="h5" component="h3" className="mainHeader">
-                Register Complaint
+              Complaint Type
               </Typography>
             </Grid>
             <div className="card">
             <Grid xs={4}>
                 <Typography component="p">
                 <FormControl className="formControl">
-                  <InputLabel className="labelMain" shrink htmlFor="age-native-label-placeholder">
-                    Type of Complaint
-                  </InputLabel>
                   <Select
                     value={this.state.age}
                     onChange={this.handleChange('age')}
@@ -287,18 +284,20 @@ class RegisterComplaint extends Component {
                   <form className="formControl" noValidate autoComplete="off">
                     <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
                     Transaction Reference ID*
+                    {/* Mobile Number* */}
                     </InputLabel>
                     <TextField
                       id="standard-name"
                       className="textField"
-                      value="Enter Transaction Reference ID"
+                      value="CC017B090155"
+                      // value="+91 "
                       onChange={this.handleChange('name')}
                       margin="normal"
                     />
                   </form>
                 </Grid>
 
-                <Grid xs={4}>
+                {/* <Grid xs={4}>
                   <form className="formControl" noValidate autoComplete="off">
                     <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
                       From Date*
@@ -326,7 +325,7 @@ class RegisterComplaint extends Component {
                       margin="normal"
                     />
                   </form>
-                </Grid>
+                </Grid> */}
                 
               </div>
 

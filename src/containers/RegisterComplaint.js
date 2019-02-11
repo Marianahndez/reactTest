@@ -26,7 +26,7 @@ import ImgLogo from '../assets/img/logobbps.svg';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
-import LogoBA from '../assets/img/LogoBillAvenue.svg';
+import LogoBA from '../assets/img/Machnet.png';
 
 const drawerSize = 240;
  
@@ -66,7 +66,7 @@ const drawerSize = 240;
   checked: {},
 }); 
 function getSteps() {
-  return ['Select Complaint Type', 'Select a Biller', 'Enter Information'];
+  return ['Select Complaint Type', 'Select Participation Type', 'Enter Information'];
 }
 
 function getStepContent(stepIndex) {
@@ -233,8 +233,8 @@ class RegisterComplaint extends Component {
                     className="SelectMain"
                     input={<Input name="age" id="age-native-label-placeholder" />}
                   >
-                    <MenuItem value={10}><em>Select Complaint Type</em></MenuItem>
-                    <MenuItem value={1}>Transaction Type</MenuItem>
+                    <MenuItem value={1}><em>Select Complaint Type</em></MenuItem>
+                    <MenuItem value={10}>Transaction Type</MenuItem>
                     <MenuItem value={20}>Service Type</MenuItem>
                   </Select>
                 </FormControl>
