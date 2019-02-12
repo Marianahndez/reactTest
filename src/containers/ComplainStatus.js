@@ -176,13 +176,13 @@ class ComplaintStatus extends Component {
       </Drawer>
 
         <Grid xs ={12} className="Appheader">
-        <Stepper activeStep={activeStep} alternativeLabel className="stepper">
+        {/* <Stepper activeStep={activeStep} alternativeLabel className="stepper">
           {steps.map(label => (
             <Step key={label}>
               <StepLabel>{label}</StepLabel>
             </Step>
           ))}
-        </Stepper>
+        </Stepper> */}
         <div>
           {this.state.activeStep === steps.length ? (
             <div>
@@ -226,8 +226,8 @@ class ComplaintStatus extends Component {
                         className="SelectMain"
                         input={<Input name="age" id="age-native-label-placeholder" />}
                       >
-                        <MenuItem value={12}><em>Select Complaint Type</em></MenuItem>
-                        <MenuItem value={10}>Transaction Type</MenuItem>
+                        <MenuItem value={13}><em>Select Complaint Type</em></MenuItem>
+                        <MenuItem value={21}>Transaction Type</MenuItem>
                         <MenuItem value={1}>Service Type</MenuItem>
                       </Select>
                     </FormControl>
@@ -252,9 +252,70 @@ class ComplaintStatus extends Component {
                   </Grid>
 
                   <Grid xs={4} className="btnCS">
-                    <Button className="btnGeneral">Check Status</Button>
+                    <Button className="btnGeneral" disabled>Check Status</Button>
                   </Grid>
                 </div>
+            </Paper>
+
+            <Paper elevation={1} className="paper">
+              <Grid xs={12}>
+                <Typography variant="h5" component="h3" className="mainHeader">
+                  Complaint Tracking
+                </Typography>
+              </Grid>
+
+              <div className="card">
+                <Grid xs={4}>
+                  <Typography component="p">
+                    <FormControl className="formControl">
+                      <InputLabel className="labelMain" shrink htmlFor="age-native-label-placeholder">
+                      Complaint Assigned
+                      </InputLabel>
+                      <TextField
+                          id="standard-name"
+                          className="textField"
+                          value="CC AVENUE"
+                          onChange={this.handleChange('name')}
+                          margin="normal"
+                        />
+                    </FormControl>
+                    </Typography>
+                </Grid>
+
+                <Grid xs={4}>
+                  <Typography component="p">
+                    <FormControl className="formControl">
+                      <InputLabel className="labelMain" shrink htmlFor="age-native-label-placeholder">
+                      Complaint ID
+                      </InputLabel>
+                      <TextField
+                          id="standard-name"
+                          className="textField"
+                          value="XD1495446616192"
+                          onChange={this.handleChange('name')}
+                          margin="normal"
+                        />
+                    </FormControl>
+                    </Typography>
+                </Grid>
+
+                {/* <Grid xs={4}>
+                  <Typography component="p">
+                    <FormControl className="formControl">
+                      <InputLabel className="labelMain" shrink htmlFor="age-native-label-placeholder">
+                      Complaint Status
+                      </InputLabel>
+                      <TextField
+                          id="standard-name"
+                          className="textField"
+                          value="Assigned"
+                          onChange={this.handleChange('name')}
+                          margin="normal"
+                        />
+                    </FormControl>
+                    </Typography>
+                </Grid> */}
+              </div>
             </Paper>
         </Grid>
       </div>

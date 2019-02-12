@@ -223,7 +223,7 @@ class RegisterComplaint extends Component {
               Complaint Type
               </Typography>
             </Grid>
-            <div className="card">
+            <div className="card topmnull">
             <Grid xs={4}>
                 <Typography component="p">
                 <FormControl className="formControl">
@@ -289,7 +289,7 @@ class RegisterComplaint extends Component {
                     <TextField
                       id="standard-name"
                       className="textField"
-                      value="CC017B090155"
+                      value="CC0175192009"
                       // value="+91 "
                       onChange={this.handleChange('name')}
                       margin="normal"
@@ -331,8 +331,8 @@ class RegisterComplaint extends Component {
 
               <div className="card">
                 <Grid xs={4} className="buttonsArea">
-                  <Button className="btnGeneral">Generate OTP</Button>
-                  <Button className="btnGeneral">Resend OTP</Button>
+                  <Button className="otpbtn" disabled>Generate OTP</Button>
+                  <Button className="otpbtn" disabled>Resend OTP</Button>
                 </Grid>
 
               <Grid xs={4}>
@@ -351,9 +351,110 @@ class RegisterComplaint extends Component {
                 </Grid>
 
                 <Grid xs={6} className="buttonsArea">
-                  <Button className="btnGeneral">Search</Button>
+                  <Button className="btnGeneral" disabled>Search</Button>
                 </Grid>
               </div>
+          </Paper>
+
+          <Paper elevation={1} className="paper">
+              <Grid xs={12}>
+                <Typography variant="h5" component="h3" className="tittleSec">
+                Transaction Response
+                </Typography>
+              </Grid>
+            <div className="card">
+              <Grid xs={4}>
+                  <form className="formControl" noValidate autoComplete="off">
+                    <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
+                      Agent ID
+                    </InputLabel>
+                    <TextField
+                      id="standard-name"
+                      className="textField"
+                      value="CC01CC01513515340681"
+                      onChange={this.handleChange('name')}
+                      margin="normal"
+                    />
+                  </form>
+                </Grid>
+                
+              <Grid xs={4}>
+                  <form className="formControl" noValidate autoComplete="off">
+                    <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
+                      Amount
+                    </InputLabel>
+                    <TextField
+                      id="standard-name"
+                      className="textField"
+                      value="16000"
+                      onChange={this.handleChange('name')}
+                      margin="normal"
+                    />
+                  </form>
+                </Grid>
+
+              <Grid xs={4}>
+                  <form className="formControl" noValidate autoComplete="off">
+                    <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
+                      Biller Name
+                    </InputLabel>
+                    <TextField
+                      id="standard-name"
+                      className="textField"
+                      value="NA7420055XSZ41"
+                      onChange={this.handleChange('name')}
+                      margin="normal"
+                    />
+                  </form>
+                </Grid>
+            </div>
+
+            <div className="card">
+            <Grid xs={4}>
+                  <form className="formControl" noValidate autoComplete="off">
+                    <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
+                      Date
+                    </InputLabel>
+                    <TextField
+                      id="standard-name"
+                      className="textField"
+                      value="2017-05-20"
+                      onChange={this.handleChange('name')}
+                      margin="normal"
+                    />
+                  </form>
+                </Grid>
+
+              <Grid xs={4}>
+                  <form className="formControl" noValidate autoComplete="off">
+                    <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
+                      Reference ID 
+                    </InputLabel>
+                    <TextField
+                      id="standard-name"
+                      className="textField"
+                      value="CC0175192009"
+                      onChange={this.handleChange('name')}
+                      margin="normal"
+                    />
+                  </form>
+                </Grid>
+
+              <Grid xs={4}>
+                  <form className="formControl" noValidate autoComplete="off">
+                    <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
+                      Status
+                    </InputLabel>
+                    <TextField
+                      id="standard-name"
+                      className="textField"
+                      value="SUCCESS"
+                      onChange={this.handleChange('name')}
+                      margin="normal"
+                    />
+                  </form>
+                </Grid>
+            </div>
           </Paper>
         </Grid>
       </div>

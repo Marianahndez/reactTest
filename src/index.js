@@ -10,6 +10,7 @@ import CS from './containers/ComplainStatus';
 import RCT from './containers/RC_TR';
 import RCA from './containers/RC_Agent';
 import RCB from './containers/RC_Biller';
+import invoice from './containers/invoice';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 ReactDOM.render(
@@ -24,6 +25,7 @@ ReactDOM.render(
                 <Route path="/RC_Transaction" component={RCT} />
                 <Route path="/RC_Agent" component={RCA} />
                 <Route path="/RC_Biller" component={RCB} />
+                <Route path="/invoice" component={invoice} />
             </Switch>
         </Router>
        {/*  <App/> */}

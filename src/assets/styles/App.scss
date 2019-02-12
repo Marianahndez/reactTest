@@ -23,8 +23,8 @@
     font-size: calc(10px + 2vmin);
     color: white;
     position: relative;
-    width: 82.5%;
-    margin-left: 18.5%;
+    // width: 82.5%;
+    // margin-left: 18.5%;
     &.appPay_Bill{
       height: 120vh !important;
       
@@ -54,6 +54,8 @@
       }
       &:nth-child(1){
         height: 53vh !important;
+        // mientras
+        margin-top: 60px;
         &.paperPay_Bill{
           height: 75vh !important;
         }&.PB{
@@ -194,7 +196,7 @@
   background: #3333339e !important;
 }
 .MuiButton-root-297.MuiButton-disabled-317.btnGeneral{
-  background: #3333339e !important;
+  background: #b1b1b1 !important;
 }
 .cardSm{
   height: 3vh;
@@ -263,5 +265,12 @@
 .topmnull{
   margin-top: 0px !important;
 }
+.flex{
+  display: flex !important;
+}
 // GRAY SELECTED
 // background: #80808069;
+
+.padd-recipt{
+  padding: 15px 30px;
+}
