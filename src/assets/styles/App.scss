@@ -23,8 +23,8 @@
     font-size: calc(10px + 2vmin);
     color: white;
     position: relative;
-    // width: 82.5%;
-    // margin-left: 18.5%;
+    width: 82.5%;
+    margin-left: 18.5%;
     &.appPay_Bill{
       height: 120vh !important;
       
@@ -54,8 +54,8 @@
       }
       &:nth-child(1){
         height: 53vh !important;
-        // mientras
-        margin-top: 60px;
+        // // mientras
+        // margin-top: 60px;
         &.paperPay_Bill{
           height: 75vh !important;
         }&.PB{
@@ -270,7 +270,29 @@
 }
 // GRAY SELECTED
 // background: #80808069;
+// select :disabled
+// color: #737171;
 
 .padd-recipt{
   padding: 15px 30px;
+}
+.border-left{
+  border-right: 1px solid gray;
+}
+.billinfo{
+
+  font-size: 18px !important;
+  h6{
+    font-size: 15px !important;
+  }
+}
+.invoicepage-root-4{
+  margin-top: 30px;
+}
+.logoBAinvoice{
+  position: relative;
+  width: 45%;
+}
+.infopadd{
+  padding: 10px 35px;
 }

@@ -34,7 +34,8 @@ import RadioButtonCheckedIcon from '@material-ui/icons/RadioButtonChecked';
 import Fab from '@material-ui/core/Fab';
 import Done from '@material-ui/icons/Done';
 import ImgLogo from '../assets/img/logobbps.svg';
-import LogoBA from '../assets/img/LogoBillAvenue.svg';
+import LogoBA from '../assets/img/Machnet.png';
+// import LogoBA from '../assets/img/LogoBillAvenue.svg';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
@@ -325,7 +326,7 @@ class RCA extends Component {
                 </FormControl>
                 </Grid>
 
-                <Grid xs={6}>
+                <Grid xs={4}>
                   <form className="formControl" noValidate autoComplete="off">
                     <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
                       Complaint Description*
@@ -340,9 +341,12 @@ class RCA extends Component {
                   </form>
                 </Grid>
 
+                <Grid xs={3} className="left buttonsArea">
+                    <Button className="btnGeneral" disabled>Submit</Button>
+                </Grid>
               </div>
 
-              <div className="card">
+              {/* <div className="card">
                 <Grid xs={3}>
                   <form className="formControl" noValidate autoComplete="off">
                     <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
@@ -378,10 +382,8 @@ class RCA extends Component {
                   </form>
                 </Grid>
 
-                <Grid xs={3} className="left buttonsArea">
-                    <Button className="btnGeneral" disabled>Submit</Button>
-                </Grid>
-              </div>
+                
+              </div> */}
 
               {/* <div className="card_rc">
               <Grid xs={4}>
@@ -409,11 +411,11 @@ class RCA extends Component {
           <Paper elevation={1} className="paper">
               <Grid xs={12}>
                 <Typography variant="h5" component="h3" className="tittleSec">
-                  Bill Information
+                  Complaint Register Successfully
                 </Typography>
               </Grid>
               <div className="card">
-                <Grid xs={3}>
+              <Grid xs={4}>
                 <form className="formControl" noValidate autoComplete="off">
                     <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
                       Agent ID
@@ -428,7 +430,7 @@ class RCA extends Component {
                   </form>
                 </Grid>
 
-                <Grid xs={3}>
+                <Grid xs={4}>
                 <FormControl className="formControl_select">
                   <InputLabel className="labelMain" shrink htmlFor="age-native-label-placeholder">
                     Service Reason
@@ -450,7 +452,7 @@ class RCA extends Component {
                 </FormControl>
                 </Grid>
 
-                <Grid xs={6}>
+                <Grid xs={4}>
                   <form className="formControl" noValidate autoComplete="off">
                     <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
                       Complaint Description
@@ -464,14 +466,61 @@ class RCA extends Component {
                     />
                   </form>
                 </Grid>
-
               </div>
 
               <div className="card">
+                <Grid xs={4}>
+                <form className="formControl" noValidate autoComplete="off">
+                    <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
+                      Complaint Assigned
+                    </InputLabel>
+                    <TextField
+                      id="standard-name"
+                      className="textField"
+                      value="CC AVENUE"
+                      onChange={this.handleChange('name')}
+                      margin="normal"
+                    />
+                  </form>
+                </Grid>
+
+                <Grid xs={4}>
+                <form className="formControl" noValidate autoComplete="off">
+                  <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
+                   Complaint ID
+                  </InputLabel>
+                  <TextField
+                      id="standard-name"
+                      className="textField"
+                      value="IY1496326110849"
+                      onChange={this.handleChange('name')}
+                      margin="normal"
+                    />
+                    </form>
+                </Grid>
+
+                <Grid xs={4}>
+                  <form className="formControl" noValidate autoComplete="off">
+                    <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
+                      Response
+                    </InputLabel>
+                    <TextField
+                      id="standard-name"
+                      className="textField"
+                      value="SUCCESS"
+                      onChange={this.handleChange('name')}
+                      margin="normal"
+                    />
+                  </form>
+                </Grid>
+
+              </div>
+
+              {/* <div className="card">
                 <Grid xs={12} className="left buttonsArea">
                     <Button className="btnGeneral" disabled>Pay now</Button>
                 </Grid>
-              </div>
+              </div> */}
           </Paper>
         </Grid>
       </div>

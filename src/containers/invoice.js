@@ -96,11 +96,13 @@ function createData(name, calories, fat, carbs) {
 }
 
 const rows = [
-  createData('Frozen yoghurt', 159, 'yoghurt', 24),
-  createData('Ice cream sandwich', 237, 'yoghurt', 37),
-  createData('Eclair', 262, 'yoghurt', 24),
-  createData('Cupcake', 305, 'yoghurt', 67),
-  createData('Gingerbread', 356, 'yoghurt', 49),
+  createData('Transaction ID', 'CC01CC01513515340681', 'Due Date', '2016-07-30'),
+  createData('Biller ID', 'OTME00005XXZ43','Customer Number', 9898990084),
+  createData('Biller Name', 'OTME',  'Customer Name', 'Ashish',),
+  createData('Bill Amount', '1000.00', 'Customer Convenience Fees', '0.00'),
+  createData( 'Bill Number', 12303037, 'Total amount', '1000.00' ),
+  createData('Bill Date', '2015-06-14','Initiating Channel', 'AGT' ),
+  createData('Bill Period', 'Jul', 'Payment Mode', 'Cash'),
 ];
 
 class invoicepage extends Component {
@@ -139,27 +141,55 @@ class invoicepage extends Component {
             <Grid xs={12}>
               <Typography variant="h5" component="h3" className="mainHeader flex">
                 <Grid xs={6}>
-                    Date: 2016-07-30
+                    Biller Recipt
                 </Grid>
                 <Grid xs={6} className="buttonsArea">
-                <Button className="btnGeneral" disabled>Print</Button>
-                    <Button className="btnGeneral" disabled>Return</Button>
-                    
+                  <Button className="btnGeneral" disabled>Print</Button>
+                  <Button className="btnGeneral" disabled>Return</Button>
                 </Grid>
               </Typography>
             </Grid>
 
             <div className="flex">
             <Grid xs={12} className="padd-recipt">
+
+            <div className="flex infopadd">
+              <Grid xs={6} >
+                <img src={LogoBA} className="logoBAinvoice" />
+                <Typography variant="h6" component="h6" className="BillerInfoData billinfo">
+                      Biller: OTME00005XXZ43
+                  </Typography>
+              </Grid>
+              <Grid xs={6} align="right" className="billinfo">
+
+              <Typography variant="h6" component="h6" className="BillerInfoData">
+                      Bill Period: Jul
+                  </Typography>
+              <Typography variant="h6" component="h6" className="BillerInfoData">
+                      Bill Date: 2016-07-01
+                  </Typography>
+
+                  <Typography variant="h6" component="h6" className="BillerInfoData">
+                      Due Date: 2016-07-30
+                  </Typography>
+              </Grid>
+            </div>
+
+            <div className="flex card-biller">
+                <Grid xs={3}>
+                  
+
+
+                </Grid>
+              </div>
                 <Paper className={classes.root}>
                     <Table className={classes.table}>
                         <TableHead>
                         <TableRow>
-                            <CustomTableCell>Payment Receipt</CustomTableCell>
-                            <CustomTableCell align="right"></CustomTableCell>
-                            <CustomTableCell align="right"></CustomTableCell>
-                            <CustomTableCell align="right"></CustomTableCell>
-                            <CustomTableCell align="right"></CustomTableCell>
+                            <CustomTableCell>Biller Details</CustomTableCell>
+                            <CustomTableCell className="noborder" align="right"></CustomTableCell>
+                            <CustomTableCell className="noborder" align="left">Customer Details</CustomTableCell>
+                            <CustomTableCell className="noborder" align="right"></CustomTableCell>
                         </TableRow>
                         </TableHead>
                         <TableBody>
@@ -168,10 +198,9 @@ class invoicepage extends Component {
                             <CustomTableCell component="th" scope="row">
                                 {row.name}
                             </CustomTableCell>
-                            <CustomTableCell align="right">{row.calories}</CustomTableCell>
-                            <CustomTableCell align="right">{row.fat}</CustomTableCell>
-                            <CustomTableCell align="right">{row.carbs}</CustomTableCell>
-                            <CustomTableCell align="right">{row.protein}</CustomTableCell>
+                            <CustomTableCell className="border-left" align="left">{row.calories}</CustomTableCell>
+                            <CustomTableCell align="left">{row.fat}</CustomTableCell>
+                            <CustomTableCell align="left">{row.carbs}</CustomTableCell>
                             </TableRow>
                         ))}
                         </TableBody>

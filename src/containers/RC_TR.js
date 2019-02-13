@@ -253,19 +253,6 @@ class RegisterComplaint extends Component {
               <div className="cardSm">
                 <Grid xs={12}>
                   <Radio
-                    checked={this.state.selectedValue === ''}
-                    onChange={this.handleChange}
-                    value="c"
-                    name="radio-button-demo"
-                    aria-label="C"
-                    classes={{
-                      root: classes.rootCheckBox,
-                      checked: classes.checked,
-                    }}
-                  /> 
-                  <span className="radioTxt">Mobile Number</span>
-
-                  <Radio
                     checked={this.state.selectedValue === 'c'}
                     onChange={this.handleChange}
                     value="c"
@@ -277,6 +264,19 @@ class RegisterComplaint extends Component {
                     }}
                   /> 
                   <span className="radioTxt">Transaction Reference ID</span>
+
+                  <Radio
+                    checked={this.state.selectedValue === ''}
+                    onChange={this.handleChange}
+                    value="c"
+                    name="radio-button-demo"
+                    aria-label="C"
+                    classes={{
+                      root: classes.rootCheckBox,
+                      checked: classes.checked,
+                    }}
+                  /> 
+                  <span className="radioTxt">Mobile Number</span>
                 </Grid>
               </div>
               <div className="card">
@@ -289,8 +289,23 @@ class RegisterComplaint extends Component {
                     <TextField
                       id="standard-name"
                       className="textField"
-                      value="CC0175192009"
+                      value="CC017B090155"
                       // value="+91 "
+                      onChange={this.handleChange('name')}
+                      margin="normal"
+                    />
+                  </form>
+                </Grid>
+
+                <Grid xs={4}>
+                  <form className="formControl" noValidate autoComplete="off">
+                    <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
+                      Complaint Description*
+                    </InputLabel>
+                    <TextField
+                      id="standard-name"
+                      className="textField"
+                      value="Complaint initiated through API"
                       onChange={this.handleChange('name')}
                       margin="normal"
                     />
@@ -326,16 +341,29 @@ class RegisterComplaint extends Component {
                     />
                   </form>
                 </Grid> */}
-                
               </div>
 
               <div className="card">
-                <Grid xs={4} className="buttonsArea">
+              <Grid xs={3}>
+                  <form className="formControl" noValidate autoComplete="off">
+                    <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
+                      Mobile Number*
+                    </InputLabel>
+                    <TextField
+                      id="standard-name"
+                      className="textField"
+                      value=" "
+                      onChange={this.handleChange('name')}
+                      margin="normal"
+                    />
+                  </form>
+                </Grid>
+                <Grid xs={3} className="buttonsArea">
                   <Button className="otpbtn" disabled>Generate OTP</Button>
                   <Button className="otpbtn" disabled>Resend OTP</Button>
                 </Grid>
 
-              <Grid xs={4}>
+              <Grid xs={3}>
                   <form className="formControl" noValidate autoComplete="off">
                     <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
                       Enter OTP
@@ -350,8 +378,8 @@ class RegisterComplaint extends Component {
                   </form>
                 </Grid>
 
-                <Grid xs={6} className="buttonsArea">
-                  <Button className="btnGeneral" disabled>Search</Button>
+                <Grid xs={3} className="buttonsArea">
+                  <Button className="btnGeneral" disabled>Submit</Button>
                 </Grid>
               </div>
           </Paper>
@@ -359,19 +387,19 @@ class RegisterComplaint extends Component {
           <Paper elevation={1} className="paper">
               <Grid xs={12}>
                 <Typography variant="h5" component="h3" className="tittleSec">
-                Transaction Response
+                  Complaint Register Successfully
                 </Typography>
               </Grid>
             <div className="card">
               <Grid xs={4}>
                   <form className="formControl" noValidate autoComplete="off">
                     <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
-                      Agent ID
+                      Transaction Reference ID 
                     </InputLabel>
                     <TextField
                       id="standard-name"
                       className="textField"
-                      value="CC01CC01513515340681"
+                      value="CC017B090155"
                       onChange={this.handleChange('name')}
                       margin="normal"
                     />
@@ -381,12 +409,12 @@ class RegisterComplaint extends Component {
               <Grid xs={4}>
                   <form className="formControl" noValidate autoComplete="off">
                     <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
-                      Amount
+                      Complaint Description
                     </InputLabel>
                     <TextField
                       id="standard-name"
                       className="textField"
-                      value="16000"
+                      value="Complaint initiated through API"
                       onChange={this.handleChange('name')}
                       margin="normal"
                     />
@@ -396,12 +424,12 @@ class RegisterComplaint extends Component {
               <Grid xs={4}>
                   <form className="formControl" noValidate autoComplete="off">
                     <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
-                      Biller Name
+                     Complaint Assigned
                     </InputLabel>
                     <TextField
                       id="standard-name"
                       className="textField"
-                      value="NA7420055XSZ41"
+                      value="CC AVENUE"
                       onChange={this.handleChange('name')}
                       margin="normal"
                     />
@@ -413,27 +441,12 @@ class RegisterComplaint extends Component {
             <Grid xs={4}>
                   <form className="formControl" noValidate autoComplete="off">
                     <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
-                      Date
+                      Complaint ID
                     </InputLabel>
                     <TextField
                       id="standard-name"
                       className="textField"
-                      value="2017-05-20"
-                      onChange={this.handleChange('name')}
-                      margin="normal"
-                    />
-                  </form>
-                </Grid>
-
-              <Grid xs={4}>
-                  <form className="formControl" noValidate autoComplete="off">
-                    <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
-                      Reference ID 
-                    </InputLabel>
-                    <TextField
-                      id="standard-name"
-                      className="textField"
-                      value="CC0175192009"
+                      value="AP1511264230664"
                       onChange={this.handleChange('name')}
                       margin="normal"
                     />

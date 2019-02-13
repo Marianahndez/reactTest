@@ -517,7 +517,7 @@ class PayBill extends Component {
                     <TextField
                       id="standard-name"
                       className="textField"
-                      value="BBPS"
+                      value="Ashish"
                       onChange={this.handleChange('name')}
                       margin="normal"
                     />
@@ -547,7 +547,7 @@ class PayBill extends Component {
                     <TextField
                       id="standard-name"
                       className="textField"
-                      value="2015-06-14"
+                      value="2016-07-01"
                       onChange={this.handleChange('name')}
                       margin="normal"
                     />
@@ -562,7 +562,7 @@ class PayBill extends Component {
                     <TextField
                       id="standard-name"
                       className="textField"
-                      value="12303"
+                      value="12303037"
                       onChange={this.handleChange('name')}
                       margin="normal"
                     />
@@ -579,7 +579,7 @@ class PayBill extends Component {
                     <TextField
                       id="standard-name"
                       className="textField"
-                      value="june"
+                      value="Jul"
                       onChange={this.handleChange('name')}
                       margin="normal"
                     />
@@ -594,7 +594,7 @@ class PayBill extends Component {
                     <TextField
                       id="standard-name"
                       className="textField"
-                      value="2015-06-20"
+                      value="2016-07-30"
                       onChange={this.handleChange('name')}
                       margin="normal"
                     />
@@ -609,7 +609,7 @@ class PayBill extends Component {
                     <TextField
                       id="standard-name"
                       className="textField"
-                      value="1000"
+                      value="1000.00"
                       onChange={this.handleChange('name')}
                       margin="normal"
                     />
