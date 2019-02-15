@@ -280,7 +280,7 @@ class RegisterComplaint extends Component {
                 </Grid>
               </div>
               <div className="card">
-                <Grid xs={4}>
+                <Grid xs={3}>
                   <form className="formControl" noValidate autoComplete="off">
                     <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
                     Transaction Reference ID*
@@ -297,7 +297,7 @@ class RegisterComplaint extends Component {
                   </form>
                 </Grid>
 
-                <Grid xs={4}>
+                <Grid xs={3}>
                   <form className="formControl" noValidate autoComplete="off">
                     <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
                       Complaint Description*
@@ -312,6 +312,20 @@ class RegisterComplaint extends Component {
                   </form>
                 </Grid>
 
+                <Grid xs={6}>
+                  <form className="formControl" noValidate autoComplete="off">
+                    <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
+                      Complaint ID
+                    </InputLabel>
+                    <TextField
+                      id="standard-name"
+                      className="textField"
+                      value="Transaction Successful, account not updated"
+                      onChange={this.handleChange('name')}
+                      margin="normal"
+                    />
+                  </form>
+                </Grid>
                 {/* <Grid xs={4}>
                   <form className="formControl" noValidate autoComplete="off">
                     <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
@@ -387,11 +401,11 @@ class RegisterComplaint extends Component {
           <Paper elevation={1} className="paper">
               <Grid xs={12}>
                 <Typography variant="h5" component="h3" className="tittleSec">
-                  Complaint Register Successfully
+                Complaint Registered Successfully
                 </Typography>
               </Grid>
             <div className="card">
-              <Grid xs={4}>
+              <Grid xs={3}>
                   <form className="formControl" noValidate autoComplete="off">
                     <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
                       Transaction Reference ID 
@@ -406,7 +420,7 @@ class RegisterComplaint extends Component {
                   </form>
                 </Grid>
                 
-              <Grid xs={4}>
+              <Grid xs={3}>
                   <form className="formControl" noValidate autoComplete="off">
                     <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
                       Complaint Description
@@ -421,7 +435,25 @@ class RegisterComplaint extends Component {
                   </form>
                 </Grid>
 
-              <Grid xs={4}>
+                <Grid xs={6}>
+                  <form className="formControl" noValidate autoComplete="off">
+                    <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
+                      Complaint ID
+                    </InputLabel>
+                    <TextField
+                      id="standard-name"
+                      className="textField"
+                      value="Transaction Successful, account not updated"
+                      onChange={this.handleChange('name')}
+                      margin="normal"
+                    />
+                  </form>
+                </Grid>
+              
+            </div>
+
+            <div className="card">
+            <Grid xs={4}>
                   <form className="formControl" noValidate autoComplete="off">
                     <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
                      Complaint Assigned
@@ -435,9 +467,7 @@ class RegisterComplaint extends Component {
                     />
                   </form>
                 </Grid>
-            </div>
 
-            <div className="card">
             <Grid xs={4}>
                   <form className="formControl" noValidate autoComplete="off">
                     <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">

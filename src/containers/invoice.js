@@ -96,13 +96,13 @@ function createData(name, calories, fat, carbs) {
 }
 
 const rows = [
-  createData('Transaction ID', 'CC01CC01513515340681', 'Due Date', '2016-07-30'),
-  createData('Biller ID', 'OTME00005XXZ43','Customer Number', 9898990084),
-  createData('Biller Name', 'OTME',  'Customer Name', 'Ashish',),
-  createData('Bill Amount', '1000.00', 'Customer Convenience Fees', '0.00'),
-  createData( 'Bill Number', 12303037, 'Total amount', '1000.00' ),
-  createData('Bill Date', '2015-06-14','Initiating Channel', 'AGT' ),
-  createData('Bill Period', 'Jul', 'Payment Mode', 'Cash'),
+  createData('Transaction ID', 'CC01CC01513515340681','Payment Mode', 'Cash' ),
+  // createData('Biller ID', 'OTME00005XXZ43','Customer Number', 9898990084),
+  createData('Biller Name', 'OTNS', 'Quick Pay Amount', '1000.00'),
+  createData('Initiating Channel', 'AGT','Customer Convenience Fees', '0.00'),
+  createData( '', '', 'Net Amount Paid', '1000.00' ),
+  // createData('Bill Date', '2016-07-01', '', '' ),
+  // createData('Bill Period', 'Jul', ),
 ];
 
 class invoicepage extends Component {
@@ -141,7 +141,7 @@ class invoicepage extends Component {
             <Grid xs={12}>
               <Typography variant="h5" component="h3" className="mainHeader flex">
                 <Grid xs={6}>
-                    Biller Recipt
+                    Payment Receipt
                 </Grid>
                 <Grid xs={6} className="buttonsArea">
                   <Button className="btnGeneral" disabled>Print</Button>
@@ -156,22 +156,8 @@ class invoicepage extends Component {
             <div className="flex infopadd">
               <Grid xs={6} >
                 <img src={LogoBA} className="logoBAinvoice" />
-                <Typography variant="h6" component="h6" className="BillerInfoData billinfo">
-                      Biller: OTME00005XXZ43
-                  </Typography>
               </Grid>
               <Grid xs={6} align="right" className="billinfo">
-
-              <Typography variant="h6" component="h6" className="BillerInfoData">
-                      Bill Period: Jul
-                  </Typography>
-              <Typography variant="h6" component="h6" className="BillerInfoData">
-                      Bill Date: 2016-07-01
-                  </Typography>
-
-                  <Typography variant="h6" component="h6" className="BillerInfoData">
-                      Due Date: 2016-07-30
-                  </Typography>
               </Grid>
             </div>
 
@@ -186,9 +172,9 @@ class invoicepage extends Component {
                     <Table className={classes.table}>
                         <TableHead>
                         <TableRow>
-                            <CustomTableCell>Biller Details</CustomTableCell>
+                            <CustomTableCell>Payment Details</CustomTableCell>
                             <CustomTableCell className="noborder" align="right"></CustomTableCell>
-                            <CustomTableCell className="noborder" align="left">Customer Details</CustomTableCell>
+                            <CustomTableCell className="noborder" align="left"></CustomTableCell>
                             <CustomTableCell className="noborder" align="right"></CustomTableCell>
                         </TableRow>
                         </TableHead>

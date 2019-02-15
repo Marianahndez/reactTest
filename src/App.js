@@ -523,7 +523,22 @@ class PayBill extends Component {
                     />
                   </form>
                 </Grid>
+               
 
+                <Grid xs={3}>
+                  <form className="formControl" noValidate autoComplete="off">
+                    <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
+                    Customer Number
+                    </InputLabel>
+                    <TextField
+                      id="standard-name"
+                      className="textField"
+                      value="9898990084"
+                      onChange={this.handleChange('name')}
+                      margin="normal"
+                    />
+                  </form>
+                </Grid>
                 <Grid xs={3}>
                   <form className="formControl" noValidate autoComplete="off">
                     <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
@@ -553,8 +568,11 @@ class PayBill extends Component {
                     />
                   </form>
                 </Grid>
+              </div>
 
-                <Grid xs={3}>
+              <div className="card">
+
+              <Grid xs={3}>
                   <form className="formControl" noValidate autoComplete="off">
                     <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
                     Bill Number
@@ -568,9 +586,8 @@ class PayBill extends Component {
                     />
                   </form>
                 </Grid>
-              </div>
 
-              <div className="card">
+
                 <Grid xs={3}>
                   <form className="formControl" noValidate autoComplete="off">
                     <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
@@ -615,6 +632,10 @@ class PayBill extends Component {
                     />
                   </form>
                 </Grid>
+              </div>
+
+
+                <div className="card">
 
                 <Grid xs={3}>
                   <form className="formControl" noValidate autoComplete="off">
@@ -630,10 +651,8 @@ class PayBill extends Component {
                     />
                   </form>
                 </Grid>
-              </div>
 
 
-<div className="card">
                 <Grid xs={3}>
                   <form className="formControl" noValidate autoComplete="off">
                     <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
@@ -694,24 +713,23 @@ class PayBill extends Component {
                     />
                   </form>
                 </Grid>
-
-                <Grid xs={3}>
-                  <form className="formControl" noValidate autoComplete="off">
-                    <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
-                    CCF + Tax(es)
-                    </InputLabel>
-                    <TextField
-                      id="standard-name"
-                      className="textField"
-                      value="0.00"
-                      onChange={this.handleChange('name')}
-                      margin="normal"
-                    />
-                  </form>
-                </Grid>
               </div>
 
-<div className="card">
+              <div className="card">
+                <Grid xs={3}>
+                    <form className="formControl" noValidate autoComplete="off">
+                      <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
+                      CCF + Tax(es)
+                      </InputLabel>
+                      <TextField
+                        id="standard-name"
+                        className="textField"
+                        value="0.00"
+                        onChange={this.handleChange('name')}
+                        margin="normal"
+                      />
+                    </form>
+                </Grid>
                 <Grid xs={3}>
                   <form className="formControl" noValidate autoComplete="off">
                     <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">

@@ -411,7 +411,7 @@ class RCA extends Component {
           <Paper elevation={1} className="paper">
               <Grid xs={12}>
                 <Typography variant="h5" component="h3" className="tittleSec">
-                  Complaint Register Successfully
+                Complaint Registered Successfully
                 </Typography>
               </Grid>
               <div className="card">
@@ -431,26 +431,20 @@ class RCA extends Component {
                 </Grid>
 
                 <Grid xs={4}>
-                <FormControl className="formControl_select">
-                  <InputLabel className="labelMain" shrink htmlFor="age-native-label-placeholder">
+                    <form className="formControl" noValidate autoComplete="off">
+                    <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
                     Service Reason
-                  </InputLabel>
-                  <Select
-                    value={this.state.age}
-                    onChange={this.handleChange('age')}
-                    className="SelectMain"
-                    input={<Input name="age" id="age-native-label-placeholder" />}
-                  >
-                    <MenuItem value={100}><em>Please Select</em></MenuItem>
-                    <MenuItem value={12}>Agent not willing to print receipt</MenuItem>
-                    <MenuItem value={15}>Agent misbehaved</MenuItem>
-                    <MenuItem value={13}>Agent outlet closed</MenuItem>
-                    <MenuItem value={16}>Agent denying registration of complaint</MenuItem>
-                    <MenuItem value={11}>Agent not accepting certain bills</MenuItem>
-                    <MenuItem value={1}>Agent overcharging</MenuItem>
-                  </Select>
-                </FormControl>
+                    </InputLabel>
+                    <TextField
+                      id="standard-name"
+                      className="textField"
+                      value="Agent overcharging"
+                      onChange={this.handleChange('name')}
+                      margin="normal"
+                    />
+                  </form>
                 </Grid>
+
 
                 <Grid xs={4}>
                   <form className="formControl" noValidate autoComplete="off">
