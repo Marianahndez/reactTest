@@ -138,7 +138,14 @@ class RegisterComplaint extends Component {
               </ListItem>
             {/* </Link> */}
             <Divider />
-
+{/* <Link to='/ComplaintStatus'> */}
+              <ListItem button >
+                <ListItemIcon>
+                  <Error />
+                </ListItemIcon>
+                <ListItemText className="menutxt" primary="Payment Status" />
+              </ListItem>
+            {/* </Link> */}
             {/* <Link to='/RegisterComplaint'> */}
               <ListItem button selected>
                 <ListItemIcon className="iconmenu">
@@ -280,7 +287,7 @@ class RegisterComplaint extends Component {
                 </Grid>
               </div>
               <div className="card">
-                <Grid xs={3}>
+                <Grid xs={4}>
                   <form className="formControl" noValidate autoComplete="off">
                     <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
                     Transaction Reference ID*
@@ -297,34 +304,44 @@ class RegisterComplaint extends Component {
                   </form>
                 </Grid>
 
-                <Grid xs={3}>
-                  <form className="formControl" noValidate autoComplete="off">
-                    <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
-                      Complaint Description*
+                <Grid xs={4}>
+                  <Typography component="p">
+                  <FormControl className="formControl">
+                    <InputLabel className="labelMain" shrink htmlFor="age-native-label-placeholder">
+                      Disposition*
                     </InputLabel>
-                    <TextField
-                      id="standard-name"
-                      className="textField"
-                      value="Complaint initiated through API"
-                      onChange={this.handleChange('name')}
-                      margin="normal"
-                    />
-                  </form>
+                    <Select
+                      value={this.state.age}
+                      onChange={this.handleChange('age')}
+                      className="SelectMain"
+                      input={<Input name="age" id="age-native-label-placeholder" />}
+                    >
+                      <MenuItem value={1}>Transaction Successful, account not updated.</MenuItem>
+                      <MenuItem value={20}>Amount deducted, biller account credited but transaction ID not received.</MenuItem>
+                      <MenuItem value={30}>Amount deducted, biller account not credited transaction ID not received.</MenuItem>
+                      <MenuItem value={100}>Amount deducted multiple times.</MenuItem>
+                      <MenuItem value={50}>Double payment updated.</MenuItem>
+                      <MenuItem value={13}>Erroneously paid in wrong account.</MenuItem>
+                      <MenuItem value={70}>Others, provide details in description.</MenuItem>
+                    </Select>
+
+                  </FormControl>
+                  </Typography>
                 </Grid>
 
-                <Grid xs={6}>
+                <Grid xs={4}>
                   <form className="formControl" noValidate autoComplete="off">
-                    <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
-                      Complaint ID
-                    </InputLabel>
-                    <TextField
-                      id="standard-name"
-                      className="textField"
-                      value="Transaction Successful, account not updated"
-                      onChange={this.handleChange('name')}
-                      margin="normal"
-                    />
-                  </form>
+                      <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
+                        Complaint Description*
+                      </InputLabel>
+                      <TextField
+                        id="standard-name"
+                        className="textField"
+                        value="Complaint initiated through API"
+                        onChange={this.handleChange('name')}
+                        margin="normal"
+                      />
+                    </form>
                 </Grid>
                 {/* <Grid xs={4}>
                   <form className="formControl" noValidate autoComplete="off">
@@ -405,7 +422,7 @@ class RegisterComplaint extends Component {
                 </Typography>
               </Grid>
             <div className="card">
-              <Grid xs={3}>
+              <Grid xs={4}>
                   <form className="formControl" noValidate autoComplete="off">
                     <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
                       Transaction Reference ID 
@@ -420,8 +437,34 @@ class RegisterComplaint extends Component {
                   </form>
                 </Grid>
                 
-              <Grid xs={3}>
-                  <form className="formControl" noValidate autoComplete="off">
+              <Grid xs={4}>
+              <Typography component="p">
+                  <FormControl className="formControl">
+                    <InputLabel className="labelMain" shrink htmlFor="age-native-label-placeholder">
+                      Disposition
+                    </InputLabel>
+                    <Select
+                      value={this.state.age}
+                      onChange={this.handleChange('age')}
+                      className="SelectMain"
+                      input={<Input name="age" id="age-native-label-placeholder" />}
+                    >
+                      <MenuItem value={1}>Transaction Successful, account not updated.</MenuItem>
+                      <MenuItem value={20}>Amount deducted, biller account credited but transaction ID not received.</MenuItem>
+                      <MenuItem value={30}>Amount deducted, biller account not credited transaction ID not received.</MenuItem>
+                      <MenuItem value={100}>Amount deducted multiple times.</MenuItem>
+                      <MenuItem value={50}>Double payment updated.</MenuItem>
+                      <MenuItem value={13}>Erroneously paid in wrong account.</MenuItem>
+                      <MenuItem value={70}>Others, provide details in description.</MenuItem>
+                    </Select>
+
+                  </FormControl>
+                  </Typography>
+                  
+                </Grid>
+
+                <Grid xs={4}>
+                <form className="formControl" noValidate autoComplete="off">
                     <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
                       Complaint Description
                     </InputLabel>
@@ -429,21 +472,6 @@ class RegisterComplaint extends Component {
                       id="standard-name"
                       className="textField"
                       value="Complaint initiated through API"
-                      onChange={this.handleChange('name')}
-                      margin="normal"
-                    />
-                  </form>
-                </Grid>
-
-                <Grid xs={6}>
-                  <form className="formControl" noValidate autoComplete="off">
-                    <InputLabel className="labelDetails" shrink htmlFor="age-native-label-placeholder">
-                      Complaint ID
-                    </InputLabel>
-                    <TextField
-                      id="standard-name"
-                      className="textField"
-                      value="Transaction Successful, account not updated"
                       onChange={this.handleChange('name')}
                       margin="normal"
                     />

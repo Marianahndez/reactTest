@@ -149,7 +149,14 @@ class RCA extends Component {
                 </ListItem>
               {/* </Link> */}
             <Divider />
-
+{/* <Link to='/ComplaintStatus'> */}
+              <ListItem button >
+                <ListItemIcon>
+                  <Error />
+                </ListItemIcon>
+                <ListItemText className="menutxt" primary="Payment Status" />
+              </ListItem>
+            {/* </Link> */}
             {/* <Link to='/RegisterComplaint'> */}
               <ListItem button selected>
                 <ListItemIcon>

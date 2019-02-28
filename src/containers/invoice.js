@@ -96,13 +96,15 @@ function createData(name, calories, fat, carbs) {
 }
 
 const rows = [
-  createData('Transaction ID', 'CC01CC01513515340681','Payment Mode', 'Cash' ),
-  // createData('Biller ID', 'OTME00005XXZ43','Customer Number', 9898990084),
+  createData('Transaction ID', 'CC01CC01513515340681', 'Payment Mode', 'Cash'),
   createData('Biller Name', 'OTNS', 'Quick Pay Amount', '1000.00'),
-  createData('Initiating Channel', 'AGT','Customer Convenience Fees', '0.00'),
-  createData( '', '', 'Net Amount Paid', '1000.00' ),
-  // createData('Bill Date', '2016-07-01', '', '' ),
-  // createData('Bill Period', 'Jul', ),
+  createData( 'Initiating Channel', 'AGT' , 'Customer Convenience Fees', '0.00'),
+  createData('Biller ID', 'OTNS00005XXZ43', 'Net Amount Paid', '1000.00'),
+  createData('Customer Name', 'Ashish','Customer Number', 9898990083),
+  // createData('Bill Number', '12303037', 'Total Amount', '1000.00'),
+  // createData('Bill Date', '2016-07-01',,),
+  // // createData('Bill Date', '2016-07-01', '', '' ),
+  // createData('Bill Period', 'Jul', 'Due Date', '2016-07-30'),
 ];
 
 class invoicepage extends Component {
@@ -158,6 +160,15 @@ class invoicepage extends Component {
                 <img src={LogoBA} className="logoBAinvoice" />
               </Grid>
               <Grid xs={6} align="right" className="billinfo">
+              <Typography component="p">
+                Transaction Date: 2019-02-14 13:48:21
+              </Typography>
+                <Typography component="p">
+                Status: Successful
+              </Typography>
+                <Typography component="p">
+                Approval Number: 12345037
+              </Typography>
               </Grid>
             </div>
 

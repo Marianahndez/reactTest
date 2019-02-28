@@ -26,6 +26,7 @@ import LogoBA from '../assets/img/Machnet.png';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
+import Radio from '@material-ui/core/Radio';
 
 const drawerSize = 240;
  
@@ -56,6 +57,13 @@ const drawerSize = 240;
     flexGrow: 1,
     padding: theme.spacing.unit * 3,
   },
+  rootCheckBox: {
+    color: "#3e8424",
+    '&$checked': {
+      color: "#3e8424",
+    },
+  },
+  checked: {},
 }); 
 
 function getSteps() {
@@ -75,13 +83,14 @@ function getStepContent(stepIndex) {
   }
 }
 
-class ComplaintStatus extends Component {
+class PayStatus extends Component {
   state = {
     age: '1',
     name: '',
     multiline: 'Controlled',
     currency: 'EUR',
     activeStep:0,
+    selectedValue: 'c',
   };
   handleNext = () => {
     this.setState(state => ({
@@ -128,8 +137,8 @@ class ComplaintStatus extends Component {
               </ListItem>
             {/* </Link> */}
             <Divider />
-            {/* <Link to='/ComplaintStatus'> */}
-            <ListItem button >
+            {/* <Link to='/PayStatus'> */}
+            <ListItem button selected>
                 <ListItemIcon>
                   <Error />
                 </ListItemIcon>
@@ -147,8 +156,8 @@ class ComplaintStatus extends Component {
             {/* </Link> */}
             <Divider />
 
-            {/* <Link to='/ComplaintStatus'> */}
-              <ListItem button selected>
+            {/* <Link to='/PayStatus'> */}
+              <ListItem button>
                 <ListItemIcon className="iconmenu">
                   <Error />
                 </ListItemIcon>
@@ -218,47 +227,62 @@ class ComplaintStatus extends Component {
           <Paper elevation={1} className="paper">
               <Grid xs={12}>
                 <Typography variant="h5" component="h3" className="mainHeader">
-                  Check Complaint Status
+                  Check Payment Status
                 </Typography>
               </Grid>
-              <div className="card">
-                <Grid xs={4}>
-                    <Typography component="p">
-                    <FormControl className="formControl">
-                      <InputLabel className="labelMain" shrink htmlFor="age-native-label-placeholder">
-                        Type of Complaint*
-                      </InputLabel>
-                      <Select
-                        value={this.state.age}
-                        onChange={this.handleChange('age')}
-                        className="SelectMain"
-                        input={<Input name="age" id="age-native-label-placeholder" />}
-                      >
-                        <MenuItem value={13}><em>Select Complaint Type</em></MenuItem>
-                        <MenuItem value={21}>Transaction Type</MenuItem>
-                        <MenuItem value={1}>Service Type</MenuItem>
-                      </Select>
-                    </FormControl>
-                    </Typography>
-                  </Grid>
+                <div className="card">
+                    <Grid xs={12}>
+                        <div className="cardSm">
+                        <Grid xs={12}>
+                        <Radio
+                            checked={this.state.selectedValue === 'c'}
+                            onChange={this.handleChange}
+                            value="c"
+                            name="radio-button-demo"
+                            aria-label="C"
+                            classes={{
+                            root: classes.rootCheckBox,
+                            checked: classes.checked,
+                            }}
+                        /> 
+                        <span className="radioTxt">Transaction Reference ID</span>
 
-                  <Grid xs={4}>
-                    <Typography component="p">
+                        <Radio
+                            checked={this.state.selectedValue === ''}
+                            onChange={this.handleChange}
+                            value="c"
+                            name="radio-button-demo"
+                            aria-label="C"
+                            classes={{
+                            root: classes.rootCheckBox,
+                            checked: classes.checked,
+                            }}
+                        /> 
+                        <span className="radioTxt">Mobile Number</span>
+                        </Grid>
+                        </div>    
+                    </Grid>
+
+                </div>
+
+                <div className="card">
+                <Grid xs={4}>
+                  <Typography component="p">
                     <FormControl className="formControl">
                       <InputLabel className="labelMain" shrink htmlFor="age-native-label-placeholder">
-                      Complaint ID*
+                        Transaction Reference ID*
                       </InputLabel>
                       <TextField
                           id="standard-name"
                           className="textField"
-                          value="KK1483101989391"
+                          value="CC01HA171921"
                           onChange={this.handleChange('name')}
                           margin="normal"
                         />
                     </FormControl>
                     </Typography>
-                  </Grid>
-
+                </Grid>
+                  
                   <Grid xs={4} className="btnCS">
                     <Button className="btnGeneral" disabled>Check Status</Button>
                   </Grid>
@@ -268,7 +292,7 @@ class ComplaintStatus extends Component {
             <Paper elevation={1} className="paper">
               <Grid xs={12}>
                 <Typography variant="h5" component="h3" className="mainHeader">
-                  Complaint Tracking
+                  Payment Tracking
                 </Typography>
               </Grid>
 
@@ -277,12 +301,12 @@ class ComplaintStatus extends Component {
                   <Typography component="p">
                     <FormControl className="formControl">
                       <InputLabel className="labelMain" shrink htmlFor="age-native-label-placeholder">
-                      Complaint Assigned
+                      Transaction Reference ID
                       </InputLabel>
                       <TextField
                           id="standard-name"
                           className="textField"
-                          value="CC AVENUE"
+                          value="CC01HA171921"
                           onChange={this.handleChange('name')}
                           margin="normal"
                         />
@@ -294,12 +318,12 @@ class ComplaintStatus extends Component {
                   <Typography component="p">
                     <FormControl className="formControl">
                       <InputLabel className="labelMain" shrink htmlFor="age-native-label-placeholder">
-                      Complaint ID
+                        Transaction Date
                       </InputLabel>
                       <TextField
                           id="standard-name"
                           className="textField"
-                          value="KK1483101989391"
+                          value="2016-07-01"
                           onChange={this.handleChange('name')}
                           margin="normal"
                         />
@@ -311,12 +335,65 @@ class ComplaintStatus extends Component {
                   <Typography component="p">
                     <FormControl className="formControl">
                       <InputLabel className="labelMain" shrink htmlFor="age-native-label-placeholder">
-                      Complaint Status
+                      Transaction Status
                       </InputLabel>
                       <TextField
                           id="standard-name"
                           className="textField"
-                          value="Assigned"
+                          value="Successful"
+                          onChange={this.handleChange('name')}
+                          margin="normal"
+                        />
+                    </FormControl>
+                    </Typography>
+                </Grid>
+              </div>
+
+              <div className="card">
+                <Grid xs={4}>
+                  <Typography component="p">
+                    <FormControl className="formControl">
+                      <InputLabel className="labelMain" shrink htmlFor="age-native-label-placeholder">
+                      Biller Name
+                      </InputLabel>
+                      <TextField
+                          id="standard-name"
+                          className="textField"
+                          value="OTNS"
+                          onChange={this.handleChange('name')}
+                          margin="normal"
+                        />
+                    </FormControl>
+                    </Typography>
+                </Grid>
+
+                <Grid xs={4}>
+                  <Typography component="p">
+                    <FormControl className="formControl">
+                      <InputLabel className="labelMain" shrink htmlFor="age-native-label-placeholder">
+                      Agent ID
+                      </InputLabel>
+                      <TextField
+                          id="standard-name"
+                          className="textField"
+                          value="CC01CC01513515340681"
+                          onChange={this.handleChange('name')}
+                          margin="normal"
+                        />
+                    </FormControl>
+                    </Typography>
+                </Grid>
+
+                <Grid xs={4}>
+                  <Typography component="p">
+                    <FormControl className="formControl">
+                      <InputLabel className="labelMain" shrink htmlFor="age-native-label-placeholder">
+                      Amount
+                      </InputLabel>
+                      <TextField
+                          id="standard-name"
+                          className="textField"
+                          value="1000.00"
                           onChange={this.handleChange('name')}
                           margin="normal"
                         />
@@ -331,8 +408,8 @@ class ComplaintStatus extends Component {
   }
 }
 
-ComplaintStatus.propTypes = {
+PayStatus.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(ComplaintStatus);
+export default withStyles(styles)(PayStatus);

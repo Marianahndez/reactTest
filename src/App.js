@@ -131,6 +131,16 @@ class PayBill extends Component {
             <Divider />
 
             {/* <Link to='/RegisterComplaint'> */}
+            <ListItem button >
+                <ListItemIcon>
+                <Error />
+                </ListItemIcon>
+                <ListItemText className="menutxt" primary="Payment Status" />
+              </ListItem>
+            {/* </Link> */}
+            <Divider />
+
+            {/* <Link to='/RegisterComplaint'> */}
               <ListItem button >
                 <ListItemIcon>
                   <Listalt />

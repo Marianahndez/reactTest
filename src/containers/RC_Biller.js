@@ -149,6 +149,14 @@ class RCB extends Component {
                 <ListItemText className="menutxt" primary="Pay Bill" />
               </ListItem>
             <Divider />
+            {/* <Link to='/ComplaintStatus'> */}
+            <ListItem button >
+                <ListItemIcon>
+                  <Error />
+                </ListItemIcon>
+                <ListItemText className="menutxt" primary="Payment Status" />
+              </ListItem>
+            {/* </Link> */}
 
             {/* <Link to='/RegisterComplaint'> */}
               <ListItem button selected>
@@ -279,8 +287,8 @@ class RCB extends Component {
                     input={<Input name="age" id="age-native-label-placeholder" />}
                   >
                     <MenuItem value={11}><em>Select Type of Participation</em></MenuItem>
-                    <MenuItem value={15}>Agent</MenuItem>
-                    <MenuItem value={1}>Biller</MenuItem>
+                    <MenuItem value={1}>Agent</MenuItem>
+                    <MenuItem value={15}>Biller</MenuItem>
                     <MenuItem value={18}>System</MenuItem>
                   </Select>
                 </FormControl>
@@ -305,7 +313,7 @@ class RCB extends Component {
                     <TextField
                       id="standard-name"
                       className="textField"
-                      value={this.state.agentID}
+                      value="CC01CC01513515340681"
                       onChange={this.handleChange('name')}
                       margin="normal"
                     />
@@ -323,8 +331,8 @@ class RCB extends Component {
                     className="SelectMain"
                     input={<Input name="age" id="age-native-label-placeholder" />}
                   >
-                    <MenuItem value={1}><em>Please Select</em></MenuItem>
-                    <MenuItem value={122}>Agent overcharging</MenuItem>
+                    <MenuItem value={122}><em>Please Select</em></MenuItem>
+                    <MenuItem value={1}>Agent overcharging</MenuItem>
                     <MenuItem value={15}>Agent misbehaved</MenuItem>
                     <MenuItem value={13}>Agent outlet closed</MenuItem>
                     <MenuItem value={16}>Agent denying registration of complaint</MenuItem>
@@ -342,7 +350,7 @@ class RCB extends Component {
                     <TextField
                       id="standard-name"
                       className="textField"
-                      value="Enter Complaint Description"
+                      value="Complaint initiated through API"
                       onChange={this.handleChange('name')}
                       margin="normal"
                     />
